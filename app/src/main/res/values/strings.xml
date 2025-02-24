@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Cliente-DeliveryRice</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="titulo">DeliveryRice by VM</string>
+    <string name="emailHint">Email</string>
+    <string name="PasswordHint">Password</string>
+    <string name="textNuevo">¿Eres nuevo? Regístrate y formarás parte de la familia DeliveryRice!!</string>
+    <string name="textBtnRegistrar"> Registrarse</string>
+    <string name="textBtnLogin"> Login </string>
+    <string name="textNoRecuerdoPass"> Has olvidado la contraseña?Recupérala!! </string>
+</resources>
