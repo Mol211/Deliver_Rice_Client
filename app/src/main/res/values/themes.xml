@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.ClienteDeliveryRice" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#9E1C1A</item>
     </style>
 
     <style name="Theme.ClienteDeliveryRice" parent="Base.Theme.ClienteDeliveryRice" />
@@ -15,4 +15,6 @@
     <style name="Theme.ClienteDeliveryRice.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.ClienteDeliveryRice.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <color name="my_light_primary">#9E1C1A</color>
 </resources>

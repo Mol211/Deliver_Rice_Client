@@ -4,13 +4,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import com.mol21.cliente_deliveryrice.R;
 import com.mol21.cliente_deliveryrice.databinding.FragmentHomeBinding;
+import com.mol21.cliente_deliveryrice.model.CategoriaProducto;
 
 public class HomeFragment extends Fragment {
 
@@ -18,14 +20,28 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+        //Configurar el botón para navegar a ArrocesFragment
+        binding.btnArroces.setOnClickListener(view -> {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("categoria", CategoriaProducto.ARROZ);
+            Navigation.findNavController(view).navigate(R.id.action_nav_home_to_arrocesFragment, bundle);
+        });
+        binding.btnEntrantes.setOnClickListener(view -> {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("categoria", CategoriaProducto.ENTRANTE);
+            Navigation.findNavController(view).navigate(R.id.action_nav_home_to_arrocesFragment, bundle);
+        });
+        binding.btnPostres.setOnClickListener(view -> {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("categoria", CategoriaProducto.POSTRE);
+            Navigation.findNavController(view).navigate(R.id.action_nav_home_to_arrocesFragment, bundle);
+        });
+
         return root;
     }
 
