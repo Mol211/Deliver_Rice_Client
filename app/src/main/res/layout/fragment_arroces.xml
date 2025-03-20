@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorTertiaryVerySoft"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.arroces.ArrocesFragment">
+    tools:context=".ui.fragment.ArrocesFragment">
 
 
     <TextView
@@ -33,6 +34,28 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:nestedScrollingEnabled="true"/>
+            <com.google.android.material.button.MaterialButton
+                android:visibility="gone"
+                android:id="@+id/btnIrCesta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ir a la cesta"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="22sp"
+                android:layout_margin="16dp"
+                app:cornerRadius="24dp"
+                app:rippleColor="@color/material_dynamic_neutral40"
+                app:backgroundTint="@color/colorPrimary"
+                app:icon="@drawable/ic_carrito"
+                app:iconPadding="8dp"
+                app:iconGravity="textStart"
+                app:iconSize="25dp"
+                app:elevation="6dp"
+                app:strokeColor="#664E05"
+                app:strokeWidth="2dp"
+                app:pressedTranslationZ="2dp"
+                android:layout_gravity="center"/>
             <TextView
                 android:id="@+id/footer"
                 android:layout_width="match_parent"

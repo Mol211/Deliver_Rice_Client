@@ -6,15 +6,40 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_shop"
             android:title="@string/menu_gallery" />
         <item
+        android:id="@+id/direccionesFragment"
+        android:icon="@drawable/ic_direcciones"
+        android:title="@string/menu_direcciones" />
+        <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_setting"
             android:title="@string/menu_slideshow" />
+
+    </group>
+    <group android:checkableBehavior="single"
+        android:visible="true">
+        <item
+            android:id="@+id/nav_historialPedidos"
+            android:icon="@drawable/ic_shop"
+            android:title="@string/menu_historial_pedidos" />
+        <item
+            android:id="@+id/nav_repartidores"
+            android:icon="@drawable/ic_repartidores"
+            android:title="@string/menu_repartidores" />
+        <item
+        android:id="@+id/nav_clientes"
+        android:icon="@drawable/ic_user"
+        android:title="@string/menu_clientes" />
+        <item
+            android:id="@+id/nav_productos"
+            android:icon="@drawable/ic_paella"
+            android:title="@string/menu_productos" />
+
     </group>
 </menu>

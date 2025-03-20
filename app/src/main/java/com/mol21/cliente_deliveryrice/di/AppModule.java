@@ -1,11 +1,13 @@
 package com.mol21.cliente_deliveryrice.di;
 
-import com.mol21.cliente_deliveryrice.api.ProductoApi;
-import com.mol21.cliente_deliveryrice.api.UsuarioApi;
-import com.mol21.cliente_deliveryrice.repository.ProductoRepository;
-import com.mol21.cliente_deliveryrice.repository.UsuarioRepository;
-
-import javax.inject.Singleton;
+import com.mol21.cliente_deliveryrice.mvvm.api.CarritoApi;
+import com.mol21.cliente_deliveryrice.mvvm.api.DireccionApi;
+import com.mol21.cliente_deliveryrice.mvvm.api.ProductoApi;
+import com.mol21.cliente_deliveryrice.mvvm.api.UsuarioApi;
+import com.mol21.cliente_deliveryrice.mvvm.repository.CarritoRepository;
+import com.mol21.cliente_deliveryrice.mvvm.repository.DireccionRepository;
+import com.mol21.cliente_deliveryrice.mvvm.repository.ProductoRepository;
+import com.mol21.cliente_deliveryrice.mvvm.repository.UsuarioRepository;
 
 import dagger.Module;
 import dagger.Provides;
@@ -51,6 +53,23 @@ public class AppModule {
     @Provides
     public ProductoRepository provideProductoRepository(ProductoApi productoApi) {
         return new ProductoRepository(productoApi);
+    }
+
+    @Provides
+    public static CarritoApi provideCarritoApi(Retrofit retrofit){
+        return retrofit.create(CarritoApi.class);
+    }
+    @Provides
+    public CarritoRepository provideCarritoRepository(CarritoApi carritoApi) {
+        return new CarritoRepository(carritoApi);
+    }
+    @Provides
+    public static DireccionApi provideDireccionApi(Retrofit retrofit){
+        return retrofit.create(DireccionApi.class);
+    }
+    @Provides
+    public DireccionRepository provideDireccionRepository(DireccionApi direccionApi) {
+        return new DireccionRepository(direccionApi);
     }
 
 

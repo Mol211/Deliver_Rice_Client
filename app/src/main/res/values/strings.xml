@@ -30,6 +30,13 @@
     <string name="title_activity_inicio">InicioActivity</string>
     <string name="title_fragment_arroces">Rock And Rice</string>
     <string name="action_close_session">Cerrar Sesión</string>
+    <string name="menu_clientes">Clientes</string>
+    <string name="textBtnPagoActivity">Ir al Pago</string>
+    <string name="carritoFragment">Cesta</string>
+    <string name="titulo_fragment_pago">Tu pedido</string>
+    <string name="detalles_entrega">Detalles de la entrega</string>
+    <string name="metodo_pago">Métodos de pago</string>
+    <string name="fragment_pago">Tu pedido</string>
 
 
 </resources>

@@ -6,4 +6,14 @@
     <color name="blue">#3D5AFE</color>
     <color name="red">#FF1744</color>
     <color name="brown">#802500</color>
+    <color name="colorPrimary">#cb4335</color>
+    <color name="colorOldPrimary">#9E1C1A</color>
+    <color name="colorSecundary">#35bdcb</color>
+    <color name="colorSecundarySoft">#81d6df</color>
+    <color name="colorSecundaryVerySoft">#a8dbd1</color>
+    <color name="colorTertiary">#E29E11</color>
+    <color name="colorTertiarySoft">#f1c40f</color>
+    <color name="colorTertiaryVerySoft">#edc26a</color>
+
+
 </resources>

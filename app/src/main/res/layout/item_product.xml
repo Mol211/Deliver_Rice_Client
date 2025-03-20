@@ -6,9 +6,11 @@
     android:layout_marginVertical="8dp"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="4dp">
         <ImageView
             android:id="@+id/ivProduct"
             android:layout_width="150dp"
@@ -18,63 +20,71 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:background="@color/brown"/>
-        <TextView
-            android:id="@+id/tvPrecio"
-            android:layout_width="60dp"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:text="22,50€"
-            android:gravity="center"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-        <TextView
-            android:id="@+id/tvTitulo"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivProduct"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.95"
-            app:layout_constraintVertical_bias="0.1"
-            tools:background="#4AFFEA00"
-            tools:text="Arroz con alcachofas y setas"/>
-        <TextView
-            android:id="@+id/tvDescripción"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintTop_toBottomOf="@id/tvTitulo"
-            app:layout_constraintStart_toEndOf="@id/ivProduct"
-            app:layout_constraintVertical_bias="0.1"
-            tools:background="#4AFFEA00"
-            tools:text="LLévate tu pizza mediana favorita, con  1 refresco y 1 entrante a elegir por solo 19.95€."/>
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/baseline_add_shopping_cart_24"
-            app:layout_constraintEnd_toEndOf="@id/iv_ivFondo"
-            app:layout_constraintBottom_toBottomOf="@id/iv_ivFondo"
-            app:layout_constraintStart_toStartOf="@id/iv_ivFondo"
-            app:layout_constraintTop_toTopOf="@id/iv_ivFondo" />
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/iv_ivFondo"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="#882AB0A8"
-            app:strokeWidth="2dp"
-            app:shapeAppearanceOverlay="@style/RoundedCorners"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvDescripción"/>/>
+            android:padding="4dp">
+            <TextView
+                android:id="@+id/tvTitulo"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                tools:background="#4AFFEA00"
+                tools:text="Arroz con alcachofas y setas"/>
+            <TextView
+                android:id="@+id/tvDescripción"
+                android:layout_width="150dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="4dp"
+                android:maxLines="5"
+                android:ellipsize="end"
+                tools:background="#4AFFEA00"
+                tools:text="LLévate tu pizza mediana favorita, con  1 refresco y 1 entrante a elegir por solo 19.95€."/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingVertical="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvPrecio"
+                android:layout_width="60dp"
+                android:layout_height="0dp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:text="22,50€"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"/>
+            <TextView
+                android:id="@+id/tvCant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"
+                tools:text="x1"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"/>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bgr_controles">
+            <ImageView
+                android:id="@+id/btnAdd"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/baseline_add_shopping_cart_24" />
+            </FrameLayout>
+
+        </LinearLayout>
+    </LinearLayout>
 
 
 </androidx.cardview.widget.CardView>
