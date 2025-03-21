@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorTertiaryVerySoft"
+    android:padding="16dp"
     tools:context=".ui.fragment.DireccionesFragment">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mis Direcciones"
+        android:layout_marginTop="60dp"
+        android:textSize="48sp"
+        android:gravity="center"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_Direcciones"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Crear Nueva Dirección"
+        android:textAllCaps="true"
+        android:layout_marginTop="40dp"
+        android:textSize="18dp"/>
 
-</FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    app:cardElevation="2dp"
+    app:cardCornerRadius="12dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:padding="4dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:gravity="clip_horizontal"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/tv_Calle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="italic"
+                    android:textSize="18dp"
+                    android:text="Calle La Plata, 12 2B" />
+                <TextView
+                    android:id="@+id/tv_Direcc_Princ"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:text="Dirección Principal" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tv_CodPostal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:gravity="center_vertical"
+                android:text="11404" />
+            <TextView
+                android:id="@+id/tv_ciudad"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:gravity="center_vertical"
+                android:text="Jerez de la Frontera" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <androidx.appcompat.widget.AppCompatButton
+                android:textAllCaps="false"
+                android:background="@drawable/bgr_controles"
+                android:layout_margin="2dp"
+                android:layout_width="wrap_content"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                android:text="Eliminar"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:textAllCaps="false"
+                android:background="@drawable/bgr_controles"
+                android:layout_margin="2dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Editar"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:paddingHorizontal="10dp"
+                android:textAllCaps="false"
+                android:background="@drawable/bgr_controles"
+                android:layout_margin="2dp"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Marcar como principal"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
