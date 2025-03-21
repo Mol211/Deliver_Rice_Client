@@ -2,10 +2,12 @@ package com.mol21.cliente_deliveryrice.di;
 
 import com.mol21.cliente_deliveryrice.mvvm.api.CarritoApi;
 import com.mol21.cliente_deliveryrice.mvvm.api.DireccionApi;
+import com.mol21.cliente_deliveryrice.mvvm.api.PedidoApi;
 import com.mol21.cliente_deliveryrice.mvvm.api.ProductoApi;
 import com.mol21.cliente_deliveryrice.mvvm.api.UsuarioApi;
 import com.mol21.cliente_deliveryrice.mvvm.repository.CarritoRepository;
 import com.mol21.cliente_deliveryrice.mvvm.repository.DireccionRepository;
+import com.mol21.cliente_deliveryrice.mvvm.repository.PedidoRepository;
 import com.mol21.cliente_deliveryrice.mvvm.repository.ProductoRepository;
 import com.mol21.cliente_deliveryrice.mvvm.repository.UsuarioRepository;
 
@@ -70,6 +72,14 @@ public class AppModule {
     @Provides
     public DireccionRepository provideDireccionRepository(DireccionApi direccionApi) {
         return new DireccionRepository(direccionApi);
+    }
+    @Provides
+    public static PedidoApi providePedidoApi(Retrofit retrofit){
+        return retrofit.create(PedidoApi.class);
+    }
+    @Provides
+    public PedidoRepository providePedidoRepository(PedidoApi pedidoApi){
+        return new PedidoRepository(pedidoApi);
     }
 
 

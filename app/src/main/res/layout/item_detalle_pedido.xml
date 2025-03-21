@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="2dp"
+    android:orientation="horizontal"
+    android:padding="2dp">
+
+    <TextView
+        android:textColor="@color/white"
+        android:id="@+id/tv_Cant_Detalle"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        tools:background="@color/colorPrimary"
+        tools:text="x4" />
+    <ImageView
+        android:layout_marginStart="4dp"
+        android:layout_gravity="center"
+        android:id="@+id/iv_Detalle"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:background="@drawable/no_image" />
+
+    <LinearLayout
+        android:layout_marginStart="6dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_Nombre_Detalle"
+            android:textColor="@color/white"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            tools:background="@color/colorPrimary"
+            tools:text="Arroz con alcachofas y setas"/>
+        <TextView
+            android:id="@+id/tv_Desc_Detalle"
+            android:layout_width="200dp"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:maxLines="5"
+            android:ellipsize="end"
+            tools:background="@color/colorPrimary"
+            tools:text="LLévate tu pizza mediana favorita, con  1 refresco y 1 entrante a elegir por solo 19.95€."/>
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_Subtotal_Detalle"
+        android:textColor="@color/white"
+        tools:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        tools:text="140.99€" />
+
+</LinearLayout>

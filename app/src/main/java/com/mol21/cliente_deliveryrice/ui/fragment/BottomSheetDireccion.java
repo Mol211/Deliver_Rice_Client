@@ -1,4 +1,4 @@
-package com.mol21.cliente_deliveryrice;
+package com.mol21.cliente_deliveryrice.ui.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,21 +16,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.mol21.cliente_deliveryrice.R;
 import com.mol21.cliente_deliveryrice.databinding.FragmentBottomSheetDireccionBinding;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.DireccionDTO;
-import com.mol21.cliente_deliveryrice.ui.fragment.adapter.DireccionPagoAdapter;
+import com.mol21.cliente_deliveryrice.ui.adapter.DireccionPagoAdapter;
+import com.mol21.cliente_deliveryrice.ui.listener.OnItemSelectedListener;
 
 import java.util.List;
 
 public class BottomSheetDireccion extends BottomSheetDialogFragment {
     RecyclerView recycler;
-    OnDireccionSeleccionadaListener listener;
+    OnItemSelectedListener listener;
     private final List<DireccionDTO> listaDirecciones;
     private FragmentBottomSheetDireccionBinding binding;
     //Interface que sirve para comunicar la direccion seleccionada al parent que lo invocó.
-    public interface OnDireccionSeleccionadaListener {
-        void onDireccionSeleccionada(DireccionDTO d);
-    }
+
 
     public BottomSheetDireccion(List<DireccionDTO> listaDirecciones) {
         // Required empty public constructor
@@ -46,10 +45,10 @@ public class BottomSheetDireccion extends BottomSheetDialogFragment {
         super.onAttach(context);
         Fragment parentFragment = getParentFragment(); // Obtiene el Fragment que lo invocó
         //Verifica si la Activity implementa la interfaz
-        if(parentFragment instanceof OnDireccionSeleccionadaListener){
-            listener = (OnDireccionSeleccionadaListener) parentFragment;
+        if(parentFragment instanceof OnItemSelectedListener){
+            listener = (OnItemSelectedListener) parentFragment;
         } else{
-            throw new RuntimeException(parentFragment.toString() + " debe implementar OnDireccionSelectedListener");
+            throw new RuntimeException(parentFragment.toString() + " debe implementar OnItemSelectedListener");
         }
     }
 

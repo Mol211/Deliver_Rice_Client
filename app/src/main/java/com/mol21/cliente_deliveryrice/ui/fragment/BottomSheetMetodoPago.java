@@ -1,4 +1,4 @@
-package com.mol21.cliente_deliveryrice;
+package com.mol21.cliente_deliveryrice.ui.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -16,7 +16,8 @@ import android.view.ViewGroup;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.mol21.cliente_deliveryrice.databinding.FragmentBottomSheetMetodoPagoBinding;
 import com.mol21.cliente_deliveryrice.mvvm.model.MetodoPago;
-import com.mol21.cliente_deliveryrice.ui.fragment.adapter.MetodoPagoAdapter;
+import com.mol21.cliente_deliveryrice.ui.adapter.MetodoPagoAdapter;
+import com.mol21.cliente_deliveryrice.ui.listener.OnItemSelectedListener;
 
 import java.util.List;
 
@@ -25,12 +26,8 @@ public class BottomSheetMetodoPago extends BottomSheetDialogFragment {
     RecyclerView recycler;
 
     private final List<MetodoPago> listaMetodos;
-    OnMetodoSeleccionadoListener listener;
+    OnItemSelectedListener listener;
     private FragmentBottomSheetMetodoPagoBinding binding;
-
-    public interface OnMetodoSeleccionadoListener{
-        void onMetodoSeleccionado(MetodoPago metodo);
-    }
 
     public BottomSheetMetodoPago(List<MetodoPago> listaMetodos) {
         // Required empty public constructor
@@ -42,10 +39,10 @@ public class BottomSheetMetodoPago extends BottomSheetDialogFragment {
         super.onAttach(context);
         Fragment parentFragment = getParentFragment();
 
-        if(parentFragment instanceof OnMetodoSeleccionadoListener){
-            listener = (OnMetodoSeleccionadoListener) parentFragment;
+        if(parentFragment instanceof OnItemSelectedListener){
+            listener = (OnItemSelectedListener) parentFragment;
         } else{
-            throw new RuntimeException(parentFragment.toString() + " debe implementar OnDireccionSelectedListener");
+            throw new RuntimeException(parentFragment.toString() + " debe implementar OnItemSelectedListener");
         }
     }
 

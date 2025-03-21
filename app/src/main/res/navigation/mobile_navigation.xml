@@ -22,11 +22,18 @@
         android:id="@+id/nav_gallery"
         android:name="com.mol21.cliente_deliveryrice.ui.fragment.PedidosFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_pedidos" />
+        tools:layout="@layout/fragment_pedidos" >
+        <action
+            android:id="@+id/action_nav_gallery_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_nav_gallery_to_detallePedido"
+            app:destination="@id/detallePedido" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.mol21.cliente_deliveryrice.ui.fragment.slideshow.SlideshowFragment"
+        android:name="com.mol21.cliente_deliveryrice.ui.fragment.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
@@ -63,7 +70,12 @@
         tools:layout="@layout/fragment_direcciones" />
     <fragment
         android:id="@+id/registrarDireccion"
-        android:name="com.mol21.cliente_deliveryrice.RegistrarDireccion"
+        android:name="com.mol21.cliente_deliveryrice.ui.fragment.RegistrarDireccion"
         android:label="fragment_registrar_direccion"
         tools:layout="@layout/fragment_registrar_direccion" />
+    <fragment
+        android:id="@+id/detallePedido"
+        android:name="com.mol21.cliente_deliveryrice.ui.fragment.DetallePedido"
+        android:label="fragment_detalle_pedido"
+        tools:layout="@layout/fragment_detalle_pedido" />
 </navigation>

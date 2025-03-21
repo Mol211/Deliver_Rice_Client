@@ -1,4 +1,4 @@
-package com.mol21.cliente_deliveryrice.ui.fragment.adapter;
+package com.mol21.cliente_deliveryrice.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,23 +6,19 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mol21.cliente_deliveryrice.BottomSheetDireccion;
 import com.mol21.cliente_deliveryrice.databinding.ItemDireccionBinding;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.DireccionDTO;
+import com.mol21.cliente_deliveryrice.ui.listener.OnItemClickListener;
 
 import java.util.List;
 
 public class DireccionPagoAdapter extends RecyclerView.Adapter<DireccionPagoViewHolder> {
     private final List<DireccionDTO> listaDirecciones;
-    private OnDireccionClickListener clickListener;
+    private OnItemClickListener<DireccionDTO> clickListener;
     /*Esta interface detecta los clicks en los elementos del Recycler
     Se usa dentro del ViewHolder para capturar los clicks en cada item*/
 
-    public interface OnDireccionClickListener{
-        void onDireccionClick(DireccionDTO direccion);
-    }
-
-    public DireccionPagoAdapter(List<DireccionDTO> listaDirecciones, OnDireccionClickListener clickListener) {
+    public DireccionPagoAdapter(List<DireccionDTO> listaDirecciones, OnItemClickListener<DireccionDTO> clickListener) {
         this.listaDirecciones = listaDirecciones;
         this.clickListener = clickListener;
     }
@@ -47,9 +43,8 @@ public class DireccionPagoAdapter extends RecyclerView.Adapter<DireccionPagoView
 
         holder.itemView.setOnClickListener(v->{
             if(clickListener != null) {
-                clickListener.onDireccionClick(d);
-            }
-        });
+                clickListener.onItemClick(d);
+        }});
     }
 
     @Override

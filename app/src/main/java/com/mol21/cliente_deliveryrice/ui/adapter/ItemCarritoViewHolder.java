@@ -1,4 +1,4 @@
-package com.mol21.cliente_deliveryrice.ui.fragment.adapter;
+package com.mol21.cliente_deliveryrice.ui.adapter;
 
 import android.util.Log;
 
@@ -39,12 +39,8 @@ public class ItemCarritoViewHolder extends RecyclerView.ViewHolder {
         binding.tvPrecio.setText(item.getSubTotal()+"€");
         binding.txtCantidad.setText(String.valueOf(item.getCantidad()));
         binding.tvTitulo.setText(item.getNombreProducto());
+
         //Botón restar 1
-
-
-
-
-
         binding.btnEliminar.setOnClickListener(view -> {
             viewModel.modificarItem(item.getId(),-1)
                     .observe(lifecycleOwner, response->{
@@ -67,9 +63,6 @@ public class ItemCarritoViewHolder extends RecyclerView.ViewHolder {
                     }
                     });
         });
-
-
-
         binding.btnAdd.setOnClickListener(view -> {
             viewModel.modificarItem(item.getId(),1)
                     .observe(lifecycleOwner, response->{

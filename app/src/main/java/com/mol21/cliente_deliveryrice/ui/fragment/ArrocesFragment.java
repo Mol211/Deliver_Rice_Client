@@ -24,7 +24,7 @@ import android.widget.Toast;
 import com.mol21.cliente_deliveryrice.R;
 import com.mol21.cliente_deliveryrice.databinding.FragmentArrocesBinding;
 import com.mol21.cliente_deliveryrice.mvvm.model.CategoriaProducto;
-import com.mol21.cliente_deliveryrice.ui.fragment.adapter.ProductoAdapter;
+import com.mol21.cliente_deliveryrice.ui.adapter.ProductoAdapter;
 import com.mol21.cliente_deliveryrice.utils.SessionManager;
 import com.mol21.cliente_deliveryrice.mvvm.viewmodel.CarritoViewModel;
 import com.mol21.cliente_deliveryrice.mvvm.viewmodel.ProductoViewModel;

@@ -1,4 +1,4 @@
-package com.mol21.cliente_deliveryrice.ui.fragment.adapter;
+package com.mol21.cliente_deliveryrice.ui.adapter;
 
 import android.util.Log;
 import android.view.LayoutInflater;

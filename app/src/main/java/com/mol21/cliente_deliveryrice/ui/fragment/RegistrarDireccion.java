@@ -1,4 +1,4 @@
-package com.mol21.cliente_deliveryrice;
+package com.mol21.cliente_deliveryrice.ui.fragment;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.mol21.cliente_deliveryrice.R;
 
 
 public class RegistrarDireccion extends Fragment {

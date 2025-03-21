@@ -22,7 +22,7 @@ import com.mol21.cliente_deliveryrice.R;
 import com.mol21.cliente_deliveryrice.databinding.FragmentCarritoBinding;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.CarritoDTO;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.ItemDTO;
-import com.mol21.cliente_deliveryrice.ui.fragment.adapter.ItemCarritoAdapter;
+import com.mol21.cliente_deliveryrice.ui.adapter.ItemCarritoAdapter;
 import com.mol21.cliente_deliveryrice.utils.SessionManager;
 import com.mol21.cliente_deliveryrice.mvvm.viewmodel.CarritoViewModel;
 

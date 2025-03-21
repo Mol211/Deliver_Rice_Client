@@ -1,31 +1,25 @@
-package com.mol21.cliente_deliveryrice.ui.fragment.adapter;
+package com.mol21.cliente_deliveryrice.ui.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mol21.cliente_deliveryrice.R;
-import com.mol21.cliente_deliveryrice.databinding.ItemItemPagoBinding;
 import com.mol21.cliente_deliveryrice.databinding.ItemMetodoPagoBinding;
 import com.mol21.cliente_deliveryrice.mvvm.model.MetodoPago;
+import com.mol21.cliente_deliveryrice.ui.listener.OnItemClickListener;
 
 import java.util.List;
 
 public class MetodoPagoAdapter extends RecyclerView.Adapter<MetodoPagoViewHolder> {
     private final List<MetodoPago> listaMetodos;
-    private OnMetodoClickListener clickListener;
+    private OnItemClickListener<MetodoPago> clickListener;
     public interface OnMetodoClickListener{
         void onMetodoClick(MetodoPago metodo);
     }
 
-    public MetodoPagoAdapter(List<MetodoPago>listaMetodos, OnMetodoClickListener listener) {
+    public MetodoPagoAdapter(List<MetodoPago>listaMetodos, OnItemClickListener<MetodoPago> listener) {
         this.listaMetodos = listaMetodos;
         this.clickListener = listener;
     }
@@ -45,7 +39,7 @@ public class MetodoPagoAdapter extends RecyclerView.Adapter<MetodoPagoViewHolder
         holder.render(metodo);
         holder.itemView.setOnClickListener(v->{
             if(clickListener != null) {
-                clickListener.onMetodoClick(metodo);
+                clickListener.onItemClick(metodo);
             }
         });
 

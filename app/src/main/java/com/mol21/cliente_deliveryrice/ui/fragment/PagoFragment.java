@@ -8,24 +8,18 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import com.mol21.cliente_deliveryrice.BottomSheetDireccion;
-import com.mol21.cliente_deliveryrice.BottomSheetMetodoPago;
 import com.mol21.cliente_deliveryrice.R;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.ItemDTO;
 import com.mol21.cliente_deliveryrice.mvvm.viewmodel.DireccionViewModel;
@@ -33,9 +27,9 @@ import com.mol21.cliente_deliveryrice.ui.activity.CategoryActivity;
 import com.mol21.cliente_deliveryrice.databinding.FragmentPagoBinding;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.DireccionDTO;
 import com.mol21.cliente_deliveryrice.mvvm.model.MetodoPago;
-import com.mol21.cliente_deliveryrice.ui.fragment.adapter.DireccionPagoAdapter;
-import com.mol21.cliente_deliveryrice.ui.fragment.adapter.ItemPagoAdapter;
-import com.mol21.cliente_deliveryrice.ui.fragment.adapter.MetodoPagoAdapter;
+import com.mol21.cliente_deliveryrice.ui.adapter.ItemPagoAdapter;
+import com.mol21.cliente_deliveryrice.ui.listener.OnItemClickListener;
+import com.mol21.cliente_deliveryrice.ui.listener.OnItemSelectedListener;
 import com.mol21.cliente_deliveryrice.utils.SessionManager;
 import com.mol21.cliente_deliveryrice.mvvm.viewmodel.CarritoViewModel;
 
@@ -43,9 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PagoFragment extends Fragment
-        implements BottomSheetDireccion.OnDireccionSeleccionadaListener,
-        BottomSheetMetodoPago.OnMetodoSeleccionadoListener {
+public class PagoFragment extends Fragment implements OnItemSelectedListener{
     private FragmentPagoBinding binding;
     private SessionManager sesion;
 
