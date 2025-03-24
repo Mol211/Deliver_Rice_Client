@@ -121,16 +121,17 @@ public class DireccionRepository {
         });
         return respuesta;
     }
-        public LiveData<GenericResponse<Void>> eliminarDireccion ( long idDireccion){
-            final MutableLiveData<GenericResponse<Void>> respuesta = new MutableLiveData<>();
-            this.direccionApi.eliminarDireccion(idDireccion).enqueue(new Callback<GenericResponse<Void>>() {
+        public LiveData<GenericResponse<DireccionDTO>> desactivarDireccion(long id){
+            final MutableLiveData<GenericResponse<DireccionDTO>> respuesta = new MutableLiveData<>();
+            this.direccionApi.desactivarDireccion(id).enqueue(new Callback<GenericResponse<DireccionDTO>>() {
                 @Override
-                public void onResponse(Call<GenericResponse<Void>> call, Response<GenericResponse<Void>> response) {
+                public void onResponse(Call<GenericResponse<DireccionDTO>> call, Response<GenericResponse<DireccionDTO>> response) {
                     respuesta.setValue(response.body());
                 }
 
                 @Override
-                public void onFailure(Call<GenericResponse<Void>> call, Throwable t) {
+                public void onFailure(Call<GenericResponse<DireccionDTO>> call, Throwable t) {
+                    t.printStackTrace();
                     respuesta.setValue(new GenericResponse<>(
                             Global.TIPO_EX,
                             Global.RPTA_ERROR,

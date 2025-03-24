@@ -11,7 +11,16 @@ public class DireccionDTO {
     private String ciudad;
     private boolean esPrincipal;
     private String emailUsuario;
-    //De momento dejo el email, pero no me sirve para nada
+    private boolean esActiva;
+
+    public boolean isEsActiva() {
+        return esActiva;
+    }
+
+    public void setEsActiva(boolean esActiva) {
+        this.esActiva = esActiva;
+    }
+//De momento dejo el email, pero no me sirve para nada
 
 
     public long getId() {
@@ -80,5 +89,6 @@ public class DireccionDTO {
         this.ciudad = direccion.getCiudad();
         this.codPostal = direccion.getCodPostal();
         this.esPrincipal = direccion.isEsPrincipal();
+        this.esActiva = true;
     }
 }

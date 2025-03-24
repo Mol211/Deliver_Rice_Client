@@ -5,12 +5,13 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mol21.cliente_deliveryrice.databinding.ItemDireccionBinding;
+import com.mol21.cliente_deliveryrice.databinding.ItemDireccionPagoBinding;
+import com.mol21.cliente_deliveryrice.databinding.ItemDireccionPagoBinding;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.DireccionDTO;
 
 public class DireccionPagoViewHolder extends RecyclerView.ViewHolder {
-    private final ItemDireccionBinding binding;
-    public DireccionPagoViewHolder(@NonNull ItemDireccionBinding binding) {
+    private final ItemDireccionPagoBinding binding;
+    public DireccionPagoViewHolder(@NonNull ItemDireccionPagoBinding binding) {
         super(binding.getRoot());
         this.binding = binding;
     }

@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mol21.cliente_deliveryrice.databinding.ItemDireccionBinding;
+import com.mol21.cliente_deliveryrice.databinding.ItemDireccionPagoBinding;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.DireccionDTO;
 import com.mol21.cliente_deliveryrice.ui.listener.OnItemClickListener;
 
@@ -31,7 +31,7 @@ public class DireccionPagoAdapter extends RecyclerView.Adapter<DireccionPagoView
     @NonNull
     @Override
     public DireccionPagoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemDireccionBinding binding = ItemDireccionBinding.inflate(LayoutInflater.from(parent.getContext()),
+        ItemDireccionPagoBinding binding = ItemDireccionPagoBinding.inflate(LayoutInflater.from(parent.getContext()),
                 parent, false);
         return new DireccionPagoViewHolder(binding);
     }

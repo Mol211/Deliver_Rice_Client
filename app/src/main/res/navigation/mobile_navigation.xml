@@ -67,7 +67,11 @@
         android:id="@+id/direccionesFragment"
         android:name="com.mol21.cliente_deliveryrice.ui.fragment.DireccionesFragment"
         android:label="fragment_direcciones"
-        tools:layout="@layout/fragment_direcciones" />
+        tools:layout="@layout/fragment_direcciones" >
+        <action
+            android:id="@+id/action_direccionesFragment_to_registrarDireccion"
+            app:destination="@id/registrarDireccion" />
+    </fragment>
     <fragment
         android:id="@+id/registrarDireccion"
         android:name="com.mol21.cliente_deliveryrice.ui.fragment.RegistrarDireccion"
