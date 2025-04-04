@@ -11,13 +11,14 @@
     tools:context=".ui.activity.RegistrarActivity">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_title_new"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
-        android:text="Nueva Dirección"
+        android:text="@string/titulo_edit_direction"
         android:textSize="48sp" />
+
 
     <ImageView
         android:layout_width="170dp"
@@ -116,7 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        android:text="Registrar"
+        android:text="@string/titulo_btn_new_direction"
         android:textAllCaps="true"
         android:textSize="16dp"
         app:icon="@drawable/ic_save" />

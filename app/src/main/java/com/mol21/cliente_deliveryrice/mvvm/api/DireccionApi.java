@@ -26,10 +26,9 @@ public interface DireccionApi {
     Call<GenericResponse<DireccionDTO>> guardarDireccion
             (@Path("idUsuario")long idUsuario,
             @Body Direccion direccion);
-    @PUT(apiDireccion + "/{id}")
+    @PUT(apiDireccion + "/actualizar")
     Call<GenericResponse<DireccionDTO>> actualizarDireccion
-            (@Path("id")long id,
-             @Body Direccion direccion);
+            (@Body Direccion direccion);
     @DELETE(apiDireccion + "/{id}")
     Call<GenericResponse<DireccionDTO>> desactivarDireccion(@Path("id") long id);
     @DELETE(apiDireccion + "/delete")

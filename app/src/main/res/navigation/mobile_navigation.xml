@@ -76,7 +76,18 @@
         android:id="@+id/registrarDireccion"
         android:name="com.mol21.cliente_deliveryrice.ui.fragment.RegistrarDireccion"
         android:label="fragment_registrar_direccion"
-        tools:layout="@layout/fragment_registrar_direccion" />
+        tools:layout="@layout/fragment_registrar_direccion">
+        <argument
+            android:name="modo"
+            app:argType="string"
+            android:defaultValue="guardar"/>
+        <argument
+            android:name="direccionId"
+            app:argType=""
+            android:defaultValue="-1" />
+
+    </fragment>
+
     <fragment
         android:id="@+id/detallePedido"
         android:name="com.mol21.cliente_deliveryrice.ui.fragment.DetallePedido"

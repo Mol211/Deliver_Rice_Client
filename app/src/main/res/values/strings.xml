@@ -37,6 +37,9 @@
     <string name="detalles_entrega">Detalles de la entrega</string>
     <string name="metodo_pago">Métodos de pago</string>
     <string name="fragment_pago">Tu pedido</string>
+    <string name="titulo_new_direction">Nueva Dirección</string>
+    <string name="titulo_edit_direction">Editar Dirección</string>
+    <string name="titulo_btn_new_direction">Guardar </string>
 
 
 </resources>

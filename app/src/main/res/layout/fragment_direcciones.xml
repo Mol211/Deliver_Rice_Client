@@ -29,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <Button
+                android:id="@+id/btn_crear_direccion"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="Crear Nueva Dirección"

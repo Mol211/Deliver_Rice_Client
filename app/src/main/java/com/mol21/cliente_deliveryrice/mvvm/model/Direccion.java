@@ -52,6 +52,15 @@ Direccion {
     public void setEsPrincipal(boolean esPrincipal) {
         this.esPrincipal = esPrincipal;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public LocalDateTime getFechaCreacion() {
         return fechaCreacion;
     }
@@ -63,5 +72,17 @@ Direccion {
     }
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    @Override
+    public String toString() {
+        return "Direccion{" +
+                "id=" + id +
+                ", calle='" + calle + '\'' +
+                ", numero='" + numero + '\'' +
+                ", codPostal='" + codPostal + '\'' +
+                ", ciudad='" + ciudad + '\'' +
+                ", esPrincipal=" + esPrincipal +
+                '}';
     }
 }

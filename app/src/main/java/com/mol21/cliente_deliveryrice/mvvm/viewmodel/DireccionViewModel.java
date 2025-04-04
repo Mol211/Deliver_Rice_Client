@@ -35,8 +35,8 @@ public class DireccionViewModel extends ViewModel {
     public LiveData<GenericResponse<DireccionDTO>> guardarDireccion(long usuarioId, Direccion d){
         return this.direccionRepository.guardarDireccion(usuarioId,d);
     }
-    public LiveData<GenericResponse<DireccionDTO>> actualizarDireccion(long usuarioId, Direccion d){
-        return this.direccionRepository.actualizarDireccion(usuarioId,d);
+    public LiveData<GenericResponse<DireccionDTO>> actualizarDireccion(Direccion d){
+        return this.direccionRepository.actualizarDireccion(d);
     }
     public LiveData<GenericResponse<DireccionDTO>> desactivarDireccion(long idDireccion){
         return this.direccionRepository.desactivarDireccion(idDireccion);

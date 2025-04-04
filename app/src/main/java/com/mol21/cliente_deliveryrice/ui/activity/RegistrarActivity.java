@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.mol21.cliente_deliveryrice.R;
+import com.mol21.cliente_deliveryrice.databinding.ActivityRegistrarBinding;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.RegistrarUsuarioDTO;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.UsuarioDTO;
 import com.mol21.cliente_deliveryrice.mvvm.model.Direccion;
@@ -36,13 +37,15 @@ public class RegistrarActivity extends AppCompatActivity {
     TextInputLayout txtEmail, txtPass, txtNombre, txtApellido, txtTfno, txtCodPostal, txtCiudad, txtCalle, txtNumero;
     TextInputEditText etEmail, etPass, etNombre, etApellido, etTfno, etCodPostal, etCiudad, etCalle, etNumero;
     Button btnRegistrar, btnBack;
+    ActivityRegistrarBinding binding;
     private UsuarioViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_registrar);
+        binding = ActivityRegistrarBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -56,36 +59,16 @@ public class RegistrarActivity extends AppCompatActivity {
     }
 
     private void init() {
-        etEmail = findViewById(R.id.et_Reg_email);
-        etPass = findViewById(R.id.et_Reg_pass);
-        etNombre = findViewById(R.id.et_Reg_nombre);
-        etApellido = findViewById(R.id.et_Reg_apellidos);
-        etTfno = findViewById(R.id.et_Reg_Tfno);
-        etCodPostal = findViewById(R.id.et_Reg_codPostal);
-        etCiudad = findViewById(R.id.et_Reg_ciudad);
-        etCalle = findViewById(R.id.et_Reg_calle);
-        etNumero = findViewById(R.id.et_Reg_numero);
-        txtEmail = findViewById(R.id.txt_Reg_email);
-        txtPass = findViewById(R.id.txt_Reg_pass);
-        txtNombre = findViewById(R.id.txt_Reg_nombre);
-        txtApellido = findViewById(R.id.txt_Reg_apellidos);
-        txtTfno = findViewById(R.id.txt_Reg_tfno);
-        txtCodPostal = findViewById(R.id.txt_Reg_codPostal);
-        txtCiudad = findViewById(R.id.txt_Reg_ciudad);
-        txtCalle = findViewById(R.id.txt_Reg_calle);
-        txtNumero = findViewById(R.id.txt_Reg_numero);
-        btnRegistrar = findViewById(R.id.btn_Reg_registrarr);
-        btnBack = findViewById(R.id.btn_Reg_back);
-        btnRegistrar.setOnClickListener(view -> {
-            String email = etEmail.getText().toString();
-            String pass = etPass.getText().toString();
-            String nombre = etNombre.getText().toString();
-            String apellido = etApellido.getText().toString();
-            String tfno = etTfno.getText().toString();
-            String codPostal = etCodPostal.getText().toString();
-            String ciudad = etCiudad.getText().toString();
-            String numero = etNumero.getText().toString();
-            String calle = etCalle.getText().toString();
+        binding.btnRegRegistrarr.setOnClickListener(view -> {
+            String email = binding.etRegEmail.getText().toString();
+            String pass = binding.etRegPass.getText().toString();
+            String nombre = binding.etRegNombre.getText().toString();
+            String apellido = binding.etRegApellidos.getText().toString();
+            String tfno = binding.etRegTfno.getText().toString();
+            String codPostal = binding.etRegCodPostal.getText().toString();
+            String ciudad = binding.etRegCiudad.getText().toString();
+            String numero = binding.etRegNumero.getText().toString();
+            String calle = binding.etRegCalle.getText().toString();
             try{
                 if(validar()){
                     Usuario u = new Usuario();
@@ -134,7 +117,7 @@ public class RegistrarActivity extends AppCompatActivity {
             }catch(Exception e){
                 e.printStackTrace();
             }
-            etPass.addTextChangedListener(new TextWatcher() {
+            binding.etRegPass.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -142,7 +125,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    txtPass.setErrorEnabled(false);
+                    binding.txtRegPass.setErrorEnabled(false);
                 }
 
                 @Override
@@ -150,7 +133,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 }
             });
-            etEmail.addTextChangedListener(new TextWatcher() {
+            binding.etRegEmail.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -158,7 +141,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    txtEmail.setErrorEnabled(false);
+                    binding.txtRegEmail.setErrorEnabled(false);
                 }
 
                 @Override
@@ -166,7 +149,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 }
             });
-            etNombre.addTextChangedListener(new TextWatcher() {
+            binding.etRegNombre.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -174,7 +157,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    txtNombre.setErrorEnabled(false);
+                    binding.txtRegNombre.setErrorEnabled(false);
                 }
 
                 @Override
@@ -182,7 +165,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 }
             });
-            etApellido.addTextChangedListener(new TextWatcher() {
+            binding.etRegApellidos.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -190,7 +173,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    txtApellido.setErrorEnabled(false);
+                    binding.txtRegApellidos.setErrorEnabled(false);
                 }
 
                 @Override
@@ -198,7 +181,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 }
             });
-            etTfno.addTextChangedListener(new TextWatcher() {
+            binding.etRegTfno.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -206,7 +189,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    txtTfno.setErrorEnabled(false);
+                    binding.txtRegApellidos.setErrorEnabled(false);
                 }
 
                 @Override
@@ -214,7 +197,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 }
             });
-            etNumero.addTextChangedListener(new TextWatcher() {
+            binding.etRegNumero.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -222,7 +205,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    txtNumero.setErrorEnabled(false);
+                    binding.txtRegNumero.setErrorEnabled(false);
                 }
 
                 @Override
@@ -230,7 +213,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 }
             });
-            etCiudad.addTextChangedListener(new TextWatcher() {
+            binding.etRegCiudad.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -238,7 +221,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    txtCiudad.setErrorEnabled(false);
+                    binding.txtRegCiudad.setErrorEnabled(false);
                 }
 
                 @Override
@@ -246,7 +229,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 }
             });
-            etCodPostal.addTextChangedListener(new TextWatcher() {
+            binding.etRegCodPostal.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -254,7 +237,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    txtCodPostal.setErrorEnabled(false);
+                    binding.txtRegCodPostal.setErrorEnabled(false);
                 }
 
                 @Override
@@ -262,7 +245,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 }
             });
-            etCalle.addTextChangedListener(new TextWatcher() {
+            binding.etRegCalle.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -270,7 +253,7 @@ public class RegistrarActivity extends AppCompatActivity {
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    txtCalle.setErrorEnabled(false);
+                    binding.txtRegCalle.setErrorEnabled(false);
                 }
 
                 @Override
@@ -279,7 +262,7 @@ public class RegistrarActivity extends AppCompatActivity {
                 }
             });
         });
-        btnBack.setOnClickListener(view -> {
+        binding.btnRegBack.setOnClickListener(view -> {
             startActivity(new Intent(this, LoginActivity.class));
             overridePendingTransition(R.anim.right_in, R.anim.right_out);
         });
@@ -287,94 +270,94 @@ public class RegistrarActivity extends AppCompatActivity {
     }
     public boolean validar(){
         boolean esValido = false;
-        String email = etEmail.getText().toString();
-        String pass = etPass.getText().toString();
-        String nombre = etNombre.getText().toString();
-        String apellido = etApellido.getText().toString();
-        String tfno = etTfno.getText().toString();
-        String codPostal = etCodPostal.getText().toString();
-        String ciudad = etCiudad.getText().toString();
-        String numero = etNumero.getText().toString();
-        String calle = etCalle.getText().toString();
+        String email = binding.etRegEmail.getText().toString();
+        String pass = binding.etRegPass.getText().toString();
+        String nombre = binding.etRegNombre.getText().toString();
+        String apellido = binding.etRegApellidos.getText().toString();
+        String tfno = binding.etRegTfno.getText().toString();
+        String codPostal = binding.etRegCodPostal.getText().toString();
+        String ciudad = binding.etRegCiudad.getText().toString();
+        String numero = binding.etRegNumero.getText().toString();
+        String calle = binding.etRegCalle.getText().toString();
         if(email.isEmpty()){
             esValido = false;
-            etEmail.requestFocus();
-            txtEmail.setError("Ingrese un correo electrónico válido");
+            binding.etRegEmail.requestFocus();
+            binding.txtRegEmail.setError("Ingrese un correo electrónico válido");
         }
         else{
-            txtEmail.setErrorEnabled(false);
+            binding.txtRegEmail.setErrorEnabled(false);
             esValido = true;
         }
         if(pass.isEmpty()){
             esValido = false;
-            etPass.requestFocus();
-            txtPass.setError("Ingrese una contraseña válida");
+            binding.etRegPass.requestFocus();
+            binding.txtRegPass.setError("Ingrese una contraseña válida");
         }
         else{
-            txtPass.setErrorEnabled(false);
+            binding.txtRegPass.setErrorEnabled(false);
             esValido = true;
         }
         if(nombre.isEmpty()){
             esValido = false;
-            etNombre.requestFocus();
-            txtNombre.setError("Ingrese un nombre válido");
+            binding.etRegNombre.requestFocus();
+            binding.txtRegNombre.setError("Ingrese un nombre válido");
         }
         else{
-            txtNombre.setErrorEnabled(false);
+            binding.txtRegNombre.setErrorEnabled(false);
             esValido = true;
         }
         if(apellido.isEmpty()){
             esValido = false;
-            etApellido.requestFocus();
-            txtApellido.setError("Ingrese un apellido");
+            binding.etRegApellidos.requestFocus();
+            binding.txtRegApellidos.setError("Ingrese un apellido");
         }
         else{
-            txtApellido.setErrorEnabled(false);
+            binding.txtRegApellidos.setErrorEnabled(false);
             esValido = true;
         }
         if(tfno.isEmpty()){
             esValido = false;
-            etTfno.requestFocus();
-            txtTfno.setError("Ingrese un número de teléfono");
+            binding.etRegTfno.requestFocus();
+            binding.txtRegTfno.setError("Ingrese un número de teléfono");
         }
         else{
-            txtTfno.setErrorEnabled(false);
+            binding.txtRegTfno.setErrorEnabled(false);
             esValido = true;
         }
         if(codPostal.isEmpty()){
             esValido = false;
-            etCodPostal.requestFocus();
-            txtCodPostal.setError("Ingrese un código postal");
+            binding.etRegCodPostal.requestFocus();
+            binding.txtRegCodPostal.setError("Ingrese un código postal");
         }
         else{
-            txtCodPostal.setErrorEnabled(false);
+            binding.txtRegCodPostal.setErrorEnabled(false);
             esValido = true;
         }
         if(ciudad.isEmpty()){
             esValido = false;
-            etCiudad.requestFocus();
-            txtCiudad.setError("Ingrese una ciudad");
+            binding.etRegCiudad.requestFocus();
+            binding.txtRegCiudad.setError("Ingrese una ciudad");
         }
         else{
-            txtCiudad.setErrorEnabled(false);
+            binding.txtRegCiudad.setErrorEnabled(false);
             esValido = true;
         }
         if(calle.isEmpty()){
             esValido = false;
-            etCalle.requestFocus();
-            txtCalle.setError("Ingrese una calle");
+            binding.etRegCalle.requestFocus();
+            binding.txtRegCalle.setError("Ingrese una calle");
         }
         else{
-            txtCalle.setErrorEnabled(false);
+            binding.txtRegCalle.setErrorEnabled(false);
             esValido = true;
         }
         if(numero.isEmpty()){
             esValido = false;
-            etNumero.requestFocus();
-            txtNumero.setError("Ingrese un número");
+            binding.etRegNumero.requestFocus();
+            binding.txtRegNumero.setError("Ingrese un número");
         }
         else{
-            txtNumero.setErrorEnabled(false);
+            binding.txtRegNumero.setErrorEnabled(false);
             esValido = true;
         }
         return esValido;

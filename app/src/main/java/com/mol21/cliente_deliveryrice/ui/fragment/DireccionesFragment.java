@@ -8,6 +8,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -56,7 +57,10 @@ public class DireccionesFragment extends Fragment{
             @Override
             public void onEditarClick(DireccionDTO direccion) {
                 NavController navController = NavHostFragment.findNavController(DireccionesFragment.this);
-                navController.navigate(R.id.action_direccionesFragment_to_registrarDireccion);
+                Bundle bundle = new Bundle();
+                bundle.putString("modo","editar");
+                bundle.putParcelable("direccion", direccion);
+                navController.navigate(R.id.action_direccionesFragment_to_registrarDireccion, bundle);
             }
 
             @Override
@@ -102,6 +106,10 @@ public class DireccionesFragment extends Fragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mostrarDirecciones();
+        binding.btnCrearDireccion.setOnClickListener(v->{
+            NavController navController = Navigation.findNavController(v);
+            navController.navigate(R.id.action_direccionesFragment_to_registrarDireccion);
+        });
 
     }
 

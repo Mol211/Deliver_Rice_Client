@@ -102,9 +102,9 @@ public class DireccionRepository {
         });
         return respuesta;
     }
-    public LiveData<GenericResponse<DireccionDTO>> actualizarDireccion(long idUsuario, Direccion d) {
+    public LiveData<GenericResponse<DireccionDTO>> actualizarDireccion(Direccion d) {
         final MutableLiveData<GenericResponse<DireccionDTO>> respuesta = new MutableLiveData<>();
-        this.direccionApi.actualizarDireccion(idUsuario, d).enqueue(new Callback<GenericResponse<DireccionDTO>>() {
+        this.direccionApi.actualizarDireccion(d).enqueue(new Callback<GenericResponse<DireccionDTO>>() {
             @Override
             public void onResponse(Call<GenericResponse<DireccionDTO>> call, Response<GenericResponse<DireccionDTO>> response) {
                 respuesta.setValue(response.body());
@@ -112,6 +112,7 @@ public class DireccionRepository {
 
             @Override
             public void onFailure(Call<GenericResponse<DireccionDTO>> call, Throwable t) {
+                t.printStackTrace();
                 respuesta.setValue(new GenericResponse<>(
                         Global.TIPO_EX,
                         Global.RPTA_ERROR,
