@@ -3,77 +3,71 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_categoria">
 
+<!--    NAV DE CLIENTE-->
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.mol21.cliente_deliveryrice.ui.fragment.HomeFragment"
+        android:id="@+id/nav_categoria"
+        android:name="com.mol21.cliente_deliveryrice.ui.fragment.CategoriaFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_categoria" >
         <action
             android:id="@+id/action_nav_home_to_arrocesFragment"
-            app:destination="@id/arrocesFragment" />
+            app:destination="@id/nav_arrocesFragment" />
         <action
             android:id="@+id/action_nav_home_to_carritoFragment"
-            app:destination="@id/carritoFragment" />
+            app:destination="@id/nav_carritoFragment" />
     </fragment>
-
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_userPedidos"
         android:name="com.mol21.cliente_deliveryrice.ui.fragment.PedidosFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_pedidos" >
         <action
-            android:id="@+id/action_nav_gallery_to_nav_home"
-            app:destination="@id/nav_home" />
+            android:id="@+id/action_nav_userPedidos_to_nav_home"
+            app:destination="@id/nav_categoria" />
         <action
-            android:id="@+id/action_nav_gallery_to_detallePedido"
-            app:destination="@id/detallePedido" />
+            android:id="@+id/action_nav_userPedidos_to_detallePedido"
+            app:destination="@id/nav_detallePedido" />
     </fragment>
-
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.mol21.cliente_deliveryrice.ui.fragment.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-    <fragment
-        android:id="@+id/arrocesFragment"
+        android:id="@+id/nav_arrocesFragment"
         android:name="com.mol21.cliente_deliveryrice.ui.fragment.ArrocesFragment"
         android:label="@string/title_fragment_arroces"
         tools:layout="@layout/fragment_arroces" >
         <action
             android:id="@+id/action_arrocesFragment_to_carritoFragment"
-            app:destination="@id/carritoFragment" />
+            app:destination="@id/nav_carritoFragment" />
     </fragment>
     <fragment
-        android:id="@+id/carritoFragment"
+        android:id="@+id/nav_carritoFragment"
         android:name="com.mol21.cliente_deliveryrice.ui.fragment.CarritoFragment"
         android:label="@string/carritoFragment"
         tools:layout="@layout/fragment_carrito" >
         <action
             android:id="@+id/action_carritoFragment_to_pagoFragment"
-            app:destination="@id/pagoFragment" />
+            app:destination="@id/nav_pagoFragment" />
     </fragment>
     <fragment
-        android:id="@+id/pagoFragment"
+        android:id="@+id/nav_pagoFragment"
         android:name="com.mol21.cliente_deliveryrice.ui.fragment.PagoFragment"
         android:label="@string/fragment_pago"
         tools:layout="@layout/fragment_pago" >
         <action
             android:id="@+id/action_pagoFragment_to_registrarDireccion"
-            app:destination="@id/registrarDireccion" />
+            app:destination="@id/nav_registrarDireccion" />
     </fragment>
     <fragment
-        android:id="@+id/direccionesFragment"
+        android:id="@+id/nav_direccionesFragment"
         android:name="com.mol21.cliente_deliveryrice.ui.fragment.DireccionesFragment"
-        android:label="fragment_direcciones"
+        android:label="@string/menu_direcciones"
         tools:layout="@layout/fragment_direcciones" >
         <action
             android:id="@+id/action_direccionesFragment_to_registrarDireccion"
-            app:destination="@id/registrarDireccion" />
+            app:destination="@id/nav_registrarDireccion" />
     </fragment>
     <fragment
-        android:id="@+id/registrarDireccion"
+        android:id="@+id/nav_registrarDireccion"
         android:name="com.mol21.cliente_deliveryrice.ui.fragment.RegistrarDireccion"
         android:label="fragment_registrar_direccion"
         tools:layout="@layout/fragment_registrar_direccion">
@@ -87,10 +81,52 @@
             android:defaultValue="-1" />
 
     </fragment>
-
     <fragment
-        android:id="@+id/detallePedido"
+        android:id="@+id/nav_detallePedido"
         android:name="com.mol21.cliente_deliveryrice.ui.fragment.DetallePedido"
         android:label="fragment_detalle_pedido"
         tools:layout="@layout/fragment_detalle_pedido" />
+
+<!--    NAV DE ADMIN-->
+    <fragment
+        android:id="@+id/nav_currentPedidos"
+        android:name="com.mol21.cliente_deliveryrice.ui.fragment.CurrentPedidos"
+        android:label="@string/menu_current_pedidos"
+        tools:layout="@layout/fragment_current_pedidos" />
+    <fragment
+    android:id="@+id/nav_productos"
+    android:name="com.mol21.cliente_deliveryrice.ui.fragment.ProductosFragment"
+    android:label="@string/nav_productos"
+    tools:layout="@layout/fragment_productos" />
+
+    <fragment
+        android:id="@+id/nav_clientes"
+        android:name="com.mol21.cliente_deliveryrice.ui.fragment.ClientesFragment"
+        android:label="@string/nav_gestion_clientes"
+        tools:layout="@layout/fragment_clientes" />
+    <fragment
+        android:id="@+id/nav_historialPedidos"
+        android:name="com.mol21.cliente_deliveryrice.ui.fragment.HistorialPedidosFragment"
+        android:label="@string/nav_historial_pedidos"
+        tools:layout="@layout/fragment_historial_pedidos" />
+    <fragment
+        android:id="@+id/nav_repartidores"
+        android:name="com.mol21.cliente_deliveryrice.ui.fragment.RepartidoresFragment"
+        android:label="@string/nav_gestion_repartidores"
+        tools:layout="@layout/fragment_repartidores" />
+
+
+    <!--    NAV DE REPARTIDOR-->
+    <fragment
+        android:id="@+id/nav_pedidosAsignados"
+        android:name="com.mol21.cliente_deliveryrice.ui.fragment.PedidosAsignadosFragment"
+        android:label="@string/menu_pedidos_asignados"
+        tools:layout="@layout/fragment_pedidos_asignados" />
+    <fragment
+        android:id="@+id/nav_historialPedidosRepartidor"
+        android:name="com.mol21.cliente_deliveryrice.ui.fragment.HistorialPedidosRepartidorFragment"
+        android:label="@string/nav_historialPedidosRepartidor"
+        tools:layout="@layout/fragment_historial_pedidos_repartidor" />
+
+
 </navigation>

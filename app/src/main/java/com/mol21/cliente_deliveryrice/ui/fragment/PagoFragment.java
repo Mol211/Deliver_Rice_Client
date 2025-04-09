@@ -23,12 +23,11 @@ import android.widget.Toast;
 import com.mol21.cliente_deliveryrice.R;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.ItemDTO;
 import com.mol21.cliente_deliveryrice.mvvm.viewmodel.DireccionViewModel;
-import com.mol21.cliente_deliveryrice.ui.activity.CategoryActivity;
+import com.mol21.cliente_deliveryrice.ui.activity.MainActivity;
 import com.mol21.cliente_deliveryrice.databinding.FragmentPagoBinding;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.DireccionDTO;
 import com.mol21.cliente_deliveryrice.mvvm.model.MetodoPago;
 import com.mol21.cliente_deliveryrice.ui.adapter.ItemPagoAdapter;
-import com.mol21.cliente_deliveryrice.ui.listener.OnItemClickListener;
 import com.mol21.cliente_deliveryrice.ui.listener.OnItemSelectedListener;
 import com.mol21.cliente_deliveryrice.utils.SessionManager;
 import com.mol21.cliente_deliveryrice.mvvm.viewmodel.CarritoViewModel;
@@ -191,7 +190,7 @@ public class PagoFragment extends Fragment implements OnItemSelectedListener{
                                         Log.d("NUEVO CARRITO CREADO", "NUEVO CARRITO: " + respuesta.getBody().getId());
                                         Log.d("NUEVO CARRITO CREADO", "MENSAJE DEL BACKEND: " + respuesta.getMessage());
                                         Toast.makeText(getContext(), "Pedido realizado con éxito", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getActivity(), CategoryActivity.class);
+                                        Intent intent = new Intent(getActivity(), MainActivity.class);
                                         startActivity(intent);
                                         getActivity().finish();
                                     } else {

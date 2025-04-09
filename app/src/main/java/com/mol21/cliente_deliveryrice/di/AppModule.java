@@ -1,11 +1,13 @@
 package com.mol21.cliente_deliveryrice.di;
 
 import com.mol21.cliente_deliveryrice.mvvm.api.CarritoApi;
+import com.mol21.cliente_deliveryrice.mvvm.api.CheckoutApi;
 import com.mol21.cliente_deliveryrice.mvvm.api.DireccionApi;
 import com.mol21.cliente_deliveryrice.mvvm.api.PedidoApi;
 import com.mol21.cliente_deliveryrice.mvvm.api.ProductoApi;
 import com.mol21.cliente_deliveryrice.mvvm.api.UsuarioApi;
 import com.mol21.cliente_deliveryrice.mvvm.repository.CarritoRepository;
+import com.mol21.cliente_deliveryrice.mvvm.repository.CheckoutRepository;
 import com.mol21.cliente_deliveryrice.mvvm.repository.DireccionRepository;
 import com.mol21.cliente_deliveryrice.mvvm.repository.PedidoRepository;
 import com.mol21.cliente_deliveryrice.mvvm.repository.ProductoRepository;
@@ -32,7 +34,8 @@ public class AppModule {
     @Provides
     public static Retrofit provideRetrofit(OkHttpClient okHttpClient){
         return new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:9090/")
+                .baseUrl("http://192.168.1.134:9090/")
+//                .baseUrl("http://10.0.2.2:9090/")
                 .addConverterFactory(GsonConverterFactory.create(GsonConfig.getGson()))
                 .client(okHttpClient)
                 .build();
@@ -80,6 +83,14 @@ public class AppModule {
     @Provides
     public PedidoRepository providePedidoRepository(PedidoApi pedidoApi){
         return new PedidoRepository(pedidoApi);
+    }
+    @Provides
+    public static CheckoutApi provideCheckoutApi(Retrofit retrofit){
+        return retrofit.create(CheckoutApi.class);
+    }
+    @Provides
+    public CheckoutRepository provideCheckoutRepository(CheckoutApi checkoutApi){
+        return new CheckoutRepository(checkoutApi);
     }
 
 

@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class PedidoDTOCliente {
+public class PedidoDTO {
     private long id;
     private EstadoPedido estadoPedido;
     private BigDecimal precioTotal;
@@ -17,9 +17,11 @@ public class PedidoDTOCliente {
     private DireccionDTO direccion;
     private List<DetalleDTO> listaDetalles;
     private MetodoPago metodoPago;
+    private UsuarioDTO usuario;
+    private UsuarioDTO repartidor;
 
 
-    public PedidoDTOCliente(Pedido pedido, List<DetalleDTO> pedidosDTOS) {
+    public PedidoDTO(Pedido pedido, List<DetalleDTO> pedidosDTOS) {
         this.id = pedido.getId_pedido();
         this.direccion = new DireccionDTO(pedido.getDireccionEnvio());
         this.precioTotal = pedido.getTotalPrecio();
@@ -27,9 +29,11 @@ public class PedidoDTOCliente {
         this.estadoPedido = pedido.getEstadoPedido();
         this.metodoPago = pedido.getMetodoPago();
         this.listaDetalles = pedidosDTOS;
+        this.usuario = new UsuarioDTO(pedido.getUsuario());
+        this.repartidor = new UsuarioDTO(pedido.getRepartidor());
         this.fechaCreacion = pedido.getFechaCreacion();
     }
-    public PedidoDTOCliente(Pedido pedido){
+    public PedidoDTO(Pedido pedido){
         this.id = pedido.getId_pedido();
         this.direccion = new DireccionDTO(pedido.getDireccionEnvio());
         this.precioTotal = pedido.getTotalPrecio();
@@ -37,6 +41,8 @@ public class PedidoDTOCliente {
         this.estadoPedido = pedido.getEstadoPedido();
         this.metodoPago = pedido.getMetodoPago();
         this.fechaCreacion = pedido.getFechaCreacion();
+        this.usuario = new UsuarioDTO(pedido.getUsuario());
+        this.repartidor = new UsuarioDTO(pedido.getRepartidor());
     }
 
     public long getId() {

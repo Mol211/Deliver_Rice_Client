@@ -18,8 +18,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
+import androidx.navigation.NavGraph;
+import androidx.navigation.NavInflater;
 import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -28,19 +31,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.mol21.cliente_deliveryrice.R;
 import com.mol21.cliente_deliveryrice.databinding.ActivityInicioBinding;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.UsuarioDTO;
+import com.mol21.cliente_deliveryrice.mvvm.model.Rol;
 import com.mol21.cliente_deliveryrice.utils.SessionManager;
 import com.mol21.cliente_deliveryrice.mvvm.viewmodel.CarritoViewModel;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class CategoryActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     private SessionManager sessionManager;
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityInicioBinding binding;
     private NavController navController;
     private CarritoViewModel viewModel;
+    private UsuarioDTO usuarioActual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +53,45 @@ public class CategoryActivity extends AppCompatActivity {
 
         binding = ActivityInicioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         sessionManager = SessionManager.getInstance(this);
+        usuarioActual = sessionManager.getUsuario();
+
+
+        //Obtener el navController
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_inicio);
+        navController = navHostFragment.getNavController();
+
+        //Cargar navGraph y cambiar startDestination según rol
+        NavInflater navInflater = navController.getNavInflater();
+        NavGraph navGraph = navInflater.inflate(R.navigation.mobile_navigation);
+        int startDestination = R.id.nav_categoria;
+        if(usuarioActual.getRol().equals(Rol.ADMINISTRADOR)){
+            startDestination = R.id.nav_currentPedidos;
+        }
+        else if (usuarioActual.getRol().equals(Rol.REPARTIDOR)) {
+            startDestination = R.id.nav_pedidosAsignados;
+        }
+        navGraph.setStartDestination(startDestination);
+        navController.setGraph(navGraph);
+
+        setSupportActionBar(binding.appBarInicio.toolbar);
+        DrawerLayout drawer = binding.drawerLayout;
+        NavigationView navigationView = binding.navView;
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                startDestination)
+                .setOpenableLayout(drawer)
+                .build();
+
+//        navigationView.clearFocus();
+//        navController = Navigation.findNavController(this, R.id.nav_host_inicio);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
+        navigationView.setCheckedItem(startDestination);
+
         OnBackPressedDispatcher onBackPressedDispatcher = getOnBackPressedDispatcher();
         onBackPressedDispatcher.addCallback(this, new OnBackPressedCallback(true) {
             @Override
@@ -56,18 +99,7 @@ public class CategoryActivity extends AppCompatActivity {
                 mostrarDialogoSalida();
             }
         });
-        setSupportActionBar(binding.appBarInicio.toolbar);
-        DrawerLayout drawer = binding.drawerLayout;
-        NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.direccionesFragment)
-                .setOpenableLayout(drawer)
-                .build();
-        navController = Navigation.findNavController(this, R.id.nav_host_inicio);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+
         initViewModel();
     }
 
@@ -79,6 +111,18 @@ public class CategoryActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         loadData();
+        Menu viewMenu = binding.navView.getMenu();
+        switch (usuarioActual.getRol()){
+            case CLIENTE:
+                viewMenu.setGroupVisible(R.id.user_menu,true);
+                break;
+            case REPARTIDOR:
+                viewMenu.setGroupVisible(R.id.repartidor_menu, true);
+                break;
+            case ADMINISTRADOR:
+                viewMenu.setGroupVisible(R.id.admin_menu,true);
+                break;
+        }
     }
 
     private void loadData() {
@@ -121,11 +165,11 @@ public class CategoryActivity extends AppCompatActivity {
         }
         //Ir al Carrito
         else if (item.getItemId() == R.id.carrito) {
-            if(navController.getCurrentDestination().getId()!=R.id.carritoFragment){
+            if(navController.getCurrentDestination().getId()!=R.id.nav_carritoFragment){
                 Toast.makeText(this, navController.getCurrentDestination().getDisplayName(), Toast.LENGTH_SHORT).show();
-                navController.navigate(R.id.carritoFragment, null,
+                navController.navigate(R.id.nav_carritoFragment, null,
                         new NavOptions.Builder()
-                                .setPopUpTo(R.id.arrocesFragment, true)
+                                .setPopUpTo(R.id.nav_arrocesFragment, true)
                                 .build());
             }
 

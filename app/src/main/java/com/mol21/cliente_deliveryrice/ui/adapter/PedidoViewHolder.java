@@ -1,20 +1,11 @@
 package com.mol21.cliente_deliveryrice.ui.adapter;
 
-import static com.mol21.cliente_deliveryrice.mvvm.model.EstadoPedido.CANCELADO;
-import static com.mol21.cliente_deliveryrice.mvvm.model.EstadoPedido.ENTREGADO;
-import static com.mol21.cliente_deliveryrice.mvvm.model.EstadoPedido.ENVIADO;
-import static com.mol21.cliente_deliveryrice.mvvm.model.EstadoPedido.EN_PROCESO;
-import static com.mol21.cliente_deliveryrice.mvvm.model.EstadoPedido.PENDIENTE;
-
-import android.view.View;
-import android.widget.Switch;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mol21.cliente_deliveryrice.R;
 import com.mol21.cliente_deliveryrice.databinding.ItemPedidoBinding;
-import com.mol21.cliente_deliveryrice.mvvm.model.DTO.PedidoDTOCliente;
+import com.mol21.cliente_deliveryrice.mvvm.model.DTO.PedidoDTO;
 import com.mol21.cliente_deliveryrice.mvvm.model.EstadoPedido;
 
 import java.time.LocalDateTime;
@@ -27,7 +18,7 @@ public class PedidoViewHolder extends RecyclerView.ViewHolder {
         super(binding.getRoot());
         this.binding = binding;
     }
-    public void render(PedidoDTOCliente p){
+    public void render(PedidoDTO p){
         binding.tvDireccionPedido.setText(
                 p.getDireccion().getCalle()+ " "+
                 p.getDireccion().getNumero()+", "+

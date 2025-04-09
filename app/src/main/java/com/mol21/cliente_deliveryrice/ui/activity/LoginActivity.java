@@ -25,6 +25,7 @@ import com.mol21.cliente_deliveryrice.R;
 import com.mol21.cliente_deliveryrice.databinding.ActivityLoginBinding;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.CarritoDTO;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.UsuarioDTO;
+import com.mol21.cliente_deliveryrice.mvvm.model.Rol;
 import com.mol21.cliente_deliveryrice.utils.SessionManager;
 import com.mol21.cliente_deliveryrice.mvvm.viewmodel.CarritoViewModel;
 import com.mol21.cliente_deliveryrice.mvvm.viewmodel.UsuarioViewModel;
@@ -39,6 +40,7 @@ public class LoginActivity extends AppCompatActivity{
     ActivityLoginBinding binding;
     private UsuarioViewModel viewModel;
     private CarritoViewModel carritoViewModel;
+    private UsuarioDTO usuario;
 
 
     //Metodo onCreate
@@ -50,10 +52,12 @@ public class LoginActivity extends AppCompatActivity{
         //Buscamos si existe una sesión activa en las Sh y si existe directamente mostramos la activity Categoria
         sessionManager = SessionManager.getInstance(this);
         boolean sesionIniciada = sessionManager.isSesionIniciada();
+
         // Debugging: Verificar qué devuelve isSesionIniciada
         Log.d("Sesion", "isSesionIniciada: " + sessionManager.isSesionIniciada());
         if(sesionIniciada){
-            startActivity(new Intent(this, CategoryActivity.class));
+            usuario = sessionManager.getUsuario();
+            startActivity(new Intent(this, MainActivity.class));
             finish();
         }
         //Inflamos la actividad Login y la establecemos como Vista
@@ -106,22 +110,24 @@ public class LoginActivity extends AppCompatActivity{
                     viewModel.login(correo, password)
                             .observe(this, response -> {
                                 if (response.getRpta() == 1) {
-                                    //Si respuesta positiva crea un nuevo carrito
-                                    //Toast.makeText(this, response.getMessage(), Toast.LENGTH_SHORT).show();
-                                    UsuarioDTO u = response.getBody();
-                                    long idUsuario = u.getId();
-                                    carritoViewModel.nuevoCarrito(idUsuario).observe(this,respuesta->{
-                                        if(respuesta.getRpta()==-1){
-                                            toastError(respuesta.getMessage());
-                                        }else {
-                                            //Si respuesta positiva, se ha creado nuevo carrito
-                                            //Si respuesta 0, carrito ya existe y devuelve carrito existente
-                                            long idCarrito = respuesta.getBody().getId();
-                                            this.toastCorrecto(response.getMessage());
-                                            Log.d("ID CARRITO", "IDCarrito: "+idCarrito);
-                                            login(u,idCarrito);
-                                        }
-                                    });
+                                    usuario = response.getBody();
+                                    if (usuario.getRol()!=Rol.CLIENTE){
+                                        login(usuario,-1);
+                                    }else{
+                                            long idUsuario = usuario.getId();
+                                            carritoViewModel.nuevoCarrito(idUsuario).observe(this,respuesta->{
+                                                if(respuesta.getRpta()==-1){
+                                                    toastError(respuesta.getMessage());
+                                                }else {
+                                                    //Si respuesta positiva, se ha creado nuevo carrito
+                                                    //Si respuesta 0, carrito ya existe y devuelve carrito existente
+                                                    long idCarrito = respuesta.getBody().getId();
+                                                    this.toastCorrecto(response.getMessage());
+                                                    Log.d("ID CARRITO", "IDCarrito: "+idCarrito);
+                                                    login(usuario,idCarrito);
+                                                }
+                                            });
+                                    }
                                 } else {
                                     if( response.getRpta() == 0 ){
                                         toastError(response.getMessage());
@@ -185,7 +191,7 @@ public class LoginActivity extends AppCompatActivity{
         sessionManager.iniciarSesion(u, carritoId);
 //        binding.etRegEmail.setText("");
 //        binding.etRegPass.setText("");
-        startActivity(new Intent(this, CategoryActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 

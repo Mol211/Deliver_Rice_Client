@@ -3,43 +3,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"
+        android:visible="false"
+        android:id="@+id/user_menu">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_categoria"
             android:icon="@drawable/ic_menu"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_carritoFragment"
+            android:icon="@drawable/baseline_shopping_cart_24"
+            android:title="@string/menu_carrito" />
+        <item
+            android:id="@+id/nav_userPedidos"
             android:icon="@drawable/ic_shop"
             android:title="@string/menu_gallery" />
         <item
-        android:id="@+id/direccionesFragment"
+        android:id="@+id/nav_direccionesFragment"
         android:icon="@drawable/ic_direcciones"
         android:title="@string/menu_direcciones" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_setting"
-            android:title="@string/menu_slideshow" />
+
 
     </group>
     <group android:checkableBehavior="single"
-        android:visible="true">
+        android:visible="false"
+        android:id="@+id/admin_menu">
         <item
-            android:id="@+id/nav_historialPedidos"
-            android:icon="@drawable/ic_shop"
-            android:title="@string/menu_historial_pedidos" />
+            android:id="@+id/nav_currentPedidos"
+            android:icon="@drawable/ic_menu"
+            android:title="@string/menu_home" />
+
+        <item
+            android:id="@+id/nav_productos"
+            android:icon="@drawable/ic_paella"
+            android:title="@string/menu_productos" />
+        <item
+            android:id="@+id/nav_clientes"
+            android:icon="@drawable/ic_user"
+            android:title="@string/menu_clientes" />
         <item
             android:id="@+id/nav_repartidores"
             android:icon="@drawable/ic_repartidores"
             android:title="@string/menu_repartidores" />
         <item
-        android:id="@+id/nav_clientes"
-        android:icon="@drawable/ic_user"
-        android:title="@string/menu_clientes" />
+            android:id="@+id/nav_historialPedidos"
+            android:icon="@drawable/ic_shop"
+            android:title="@string/menu_historial_pedidos" />
+    </group>
+    <group android:checkableBehavior="single"
+    android:visible="false"
+    android:id="@+id/repartidor_menu">
         <item
-            android:id="@+id/nav_productos"
-            android:icon="@drawable/ic_paella"
-            android:title="@string/menu_productos" />
-
+            android:id="@+id/nav_pedidosAsignados"
+            android:icon="@drawable/ic_menu"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_historialPedidosRepartidor"
+            android:icon="@drawable/ic_shop"
+            android:title="@string/menu_historial_pedidos" />
     </group>
 </menu>

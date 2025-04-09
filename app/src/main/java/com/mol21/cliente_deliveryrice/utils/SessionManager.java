@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.UsuarioDTO;
+import com.mol21.cliente_deliveryrice.mvvm.model.Rol;
 
 import java.time.LocalDateTime;
 

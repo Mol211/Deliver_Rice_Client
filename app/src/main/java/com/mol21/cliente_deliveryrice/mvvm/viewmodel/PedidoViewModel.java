@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.mol21.cliente_deliveryrice.mvvm.model.DTO.PedidoDTOCliente;
+import com.mol21.cliente_deliveryrice.mvvm.model.DTO.PedidoDTO;
 import com.mol21.cliente_deliveryrice.mvvm.repository.PedidoRepository;
 import com.mol21.cliente_deliveryrice.utils.GenericResponse;
 
@@ -31,10 +31,10 @@ public class PedidoViewModel extends ViewModel {
     public PedidoViewModel(PedidoRepository pedidoRepository) {
         this.pedidoRepository = pedidoRepository;
     }
-    public LiveData<GenericResponse<List<PedidoDTOCliente>>> obtenerListPedido(long idCliente){
+    public LiveData<GenericResponse<List<PedidoDTO>>> obtenerListPedido(long idCliente){
         return pedidoRepository.obtenerListaPedidos(idCliente);
     }
-    public LiveData<GenericResponse<PedidoDTOCliente>> obtenerPedido(long idPedido){
+    public LiveData<GenericResponse<PedidoDTO>> obtenerPedido(long idPedido){
         return pedidoRepository.obtenerPedido(idPedido);
     }
 

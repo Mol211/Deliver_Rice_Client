@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mol21.cliente_deliveryrice.databinding.FragmentDetallePedidoBinding;
-import com.mol21.cliente_deliveryrice.mvvm.model.DTO.PedidoDTOCliente;
+import com.mol21.cliente_deliveryrice.mvvm.model.DTO.PedidoDTO;
 import com.mol21.cliente_deliveryrice.mvvm.viewmodel.PedidoViewModel;
 import com.mol21.cliente_deliveryrice.ui.adapter.DetallePedidoAdapter;
 
@@ -24,7 +24,7 @@ import java.util.Locale;
 public class DetallePedido extends Fragment {
     FragmentDetallePedidoBinding binding;
     PedidoViewModel viewModel;
-    PedidoDTOCliente pedido;
+    PedidoDTO pedido;
 
     public DetallePedido() {
         // Required empty public constructor

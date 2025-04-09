@@ -94,7 +94,7 @@ public class ArrocesFragment extends Fragment {
             Navigation.findNavController(v).navigate(R.id.action_arrocesFragment_to_carritoFragment,
                     null,
                     new NavOptions.Builder()
-                            .setPopUpTo(R.id.arrocesFragment,true)
+                            .setPopUpTo(R.id.nav_arrocesFragment,true)
                             .build());
         });
     }

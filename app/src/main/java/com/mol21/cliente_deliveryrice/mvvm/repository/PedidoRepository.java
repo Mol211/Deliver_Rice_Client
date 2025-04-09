@@ -5,9 +5,8 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.google.gson.Gson;
 import com.mol21.cliente_deliveryrice.mvvm.api.PedidoApi;
-import com.mol21.cliente_deliveryrice.mvvm.model.DTO.PedidoDTOCliente;
+import com.mol21.cliente_deliveryrice.mvvm.model.DTO.PedidoDTO;
 import com.mol21.cliente_deliveryrice.utils.GenericResponse;
 import com.mol21.cliente_deliveryrice.utils.Global;
 
@@ -26,17 +25,17 @@ public class PedidoRepository {
     public PedidoRepository(PedidoApi pedidoApi) {
         this.pedidoApi = pedidoApi;
     }
-    public LiveData<GenericResponse<List<PedidoDTOCliente>>> obtenerListaPedidos(long idUsuario){
-        final MutableLiveData<GenericResponse<List<PedidoDTOCliente>>> respuesta = new MutableLiveData<>();
-        this.pedidoApi.obtenerListPedidos(idUsuario).enqueue(new Callback<GenericResponse<List<PedidoDTOCliente>>>() {
+    public LiveData<GenericResponse<List<PedidoDTO>>> obtenerListaPedidos(long idUsuario){
+        final MutableLiveData<GenericResponse<List<PedidoDTO>>> respuesta = new MutableLiveData<>();
+        this.pedidoApi.obtenerListPedidos(idUsuario).enqueue(new Callback<GenericResponse<List<PedidoDTO>>>() {
             @Override
-            public void onResponse(Call<GenericResponse<List<PedidoDTOCliente>>> call, Response<GenericResponse<List<PedidoDTOCliente>>> response) {
+            public void onResponse(Call<GenericResponse<List<PedidoDTO>>> call, Response<GenericResponse<List<PedidoDTO>>> response) {
                 respuesta.setValue(response.body());
                 Log.d("PEDIDOREPOSITORY", "onResponse: "+response.body());
             }
 
             @Override
-            public void onFailure(Call<GenericResponse<List<PedidoDTOCliente>>> call, Throwable t) {
+            public void onFailure(Call<GenericResponse<List<PedidoDTO>>> call, Throwable t) {
                 respuesta.setValue(new GenericResponse<>(
                         Global.TIPO_EX,
                         Global.RPTA_ERROR,
@@ -49,16 +48,16 @@ public class PedidoRepository {
         });
         return respuesta;
     }
-    public LiveData<GenericResponse<PedidoDTOCliente>> obtenerPedido(long idPedido){
-        final MutableLiveData<GenericResponse<PedidoDTOCliente>> respuesta = new MutableLiveData<>();
-        this.pedidoApi.obtenerPedido(idPedido).enqueue(new Callback<GenericResponse<PedidoDTOCliente>>() {
+    public LiveData<GenericResponse<PedidoDTO>> obtenerPedido(long idPedido){
+        final MutableLiveData<GenericResponse<PedidoDTO>> respuesta = new MutableLiveData<>();
+        this.pedidoApi.obtenerPedido(idPedido).enqueue(new Callback<GenericResponse<PedidoDTO>>() {
             @Override
-            public void onResponse(Call<GenericResponse<PedidoDTOCliente>> call, Response<GenericResponse<PedidoDTOCliente>> response) {
+            public void onResponse(Call<GenericResponse<PedidoDTO>> call, Response<GenericResponse<PedidoDTO>> response) {
                 respuesta.setValue(response.body());
             }
 
             @Override
-            public void onFailure(Call<GenericResponse<PedidoDTOCliente>> call, Throwable t) {
+            public void onFailure(Call<GenericResponse<PedidoDTO>> call, Throwable t) {
                 respuesta.setValue(new GenericResponse<>(
                         Global.TIPO_EX,
                         Global.RPTA_ERROR,

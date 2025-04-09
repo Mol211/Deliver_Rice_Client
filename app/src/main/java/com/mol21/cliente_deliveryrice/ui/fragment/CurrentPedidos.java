@@ -4,22 +4,20 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.mol21.cliente_deliveryrice.databinding.FragmentSlideshowBinding;
+import com.mol21.cliente_deliveryrice.databinding.FragmentCurrentPedidosBinding;
 
 
-public class SlideshowFragment extends Fragment {
+public class CurrentPedidos extends Fragment {
 
-    private FragmentSlideshowBinding binding;
+    private FragmentCurrentPedidosBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentCurrentPedidosBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         return root;
