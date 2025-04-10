@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorTertiaryVerySoft"
+    android:fitsSystemWindows="true"
     tools:context=".ui.fragment.HistorialPedidosRepartidorFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- Contenedor principal para scroll -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-</FrameLayout>
+        <!-- Título que se mueve con el scroll -->
+        <TextView
+            android:id="@+id/tvPedidosAsignados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Historial de pedidos"
+            android:textSize="32sp"
+            android:layout_marginTop="16dp"/>
+
+        <!-- LinearLayout con el mensaje de error si no hay pedidos -->
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/llNoCarrito"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivNoCarrito"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/ic_repartidores"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:id="@+id/tvNoCarrito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ups! Parece que todavía no tienes pedidos asignados..."
+                android:textAlignment="center"
+                android:layout_marginTop="24dp"/>
+        </LinearLayout>
+
+        <!-- RecyclerView para los pedidos -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_Pedidos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="true"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

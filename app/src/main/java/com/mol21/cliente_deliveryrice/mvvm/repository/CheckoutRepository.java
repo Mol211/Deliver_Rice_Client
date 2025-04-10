@@ -9,6 +9,7 @@ import com.mol21.cliente_deliveryrice.mvvm.model.EstadoPedido;
 import com.mol21.cliente_deliveryrice.utils.GenericResponse;
 import com.mol21.cliente_deliveryrice.utils.Global;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +41,34 @@ public class CheckoutRepository {
         this.checkoutApi.obtenerPedidos(params).enqueue(new Callback<GenericResponse<List<PedidoDTO>>>() {
             @Override
             public void onResponse(Call<GenericResponse<List<PedidoDTO>>> call, Response<GenericResponse<List<PedidoDTO>>> response) {
+                List<PedidoDTO> pedidosCompletados = new ArrayList<>();
+                List<PedidoDTO> pedidosEnProceso = new ArrayList<>();
+                List<PedidoDTO> pedidosEnviados = new ArrayList<>();
+                List<PedidoDTO> pedidosCancelados= new ArrayList<>();
+                List<PedidoDTO> pedidosPendientes = new ArrayList<>();
+                for(PedidoDTO pedido: response.body().getBody()) {
+                    if(pedido.getEstadoPedido().equals(EstadoPedido.ENTREGADO)) {
+                        pedidosCompletados.add(pedido);
+                    } else if(pedido.getEstadoPedido().equals(EstadoPedido.CANCELADO)){
+                        pedidosCancelados.add(pedido);
+                    } else if(pedido.getEstadoPedido().equals(EstadoPedido.ENVIADO)){
+                        pedidosEnviados.add(pedido);
+                    } else if(pedido.getEstadoPedido().equals(EstadoPedido.EN_PROCESO)){
+                        pedidosEnProceso.add(pedido);
+                    } else{
+                        pedidosPendientes.add(pedido);
+                    }
+                }
+                List<PedidoDTO>pedidosOrdenados = new ArrayList<>();
+                pedidosOrdenados.addAll(pedidosCompletados);
+                pedidosOrdenados.addAll(pedidosEnviados);
+                pedidosOrdenados.addAll(pedidosEnProceso);
+                pedidosOrdenados.addAll(pedidosPendientes);
+                pedidosOrdenados.addAll(pedidosCancelados);
+
+                response.body().setBody(pedidosOrdenados);
                 respuesta.setValue(response.body());
+
             }
 
             @Override

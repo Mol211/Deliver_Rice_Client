@@ -45,8 +45,6 @@ public class PedidosFragment extends Fragment {
         sessionManager = SessionManager.getInstance(getContext());
         listaPedidos = new ArrayList<>();
         View root = binding.getRoot();
-
-
         return root;
     }
 

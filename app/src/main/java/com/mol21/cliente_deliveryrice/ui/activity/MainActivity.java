@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -151,6 +152,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.activity_menu_top, menu);
+        if(!usuarioActual.getRol().equals(Rol.CLIENTE)){
+            menu.findItem(R.id.carrito).setVisible(false);
+        }
         return true;
     }
 

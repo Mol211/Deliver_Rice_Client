@@ -61,6 +61,7 @@ public class PedidosAsignadosFragment extends Fragment{
                         binding.ndSiPedidos.setVisibility(GONE);}
                     else{
                         listaPedidos = response.getBody();
+                        Log.d("PEDIDO !",""+(listaPedidos.get(0).getListaDetalles().get(0)));
                         binding.llNoCarrito.setVisibility(GONE);
                         binding.ndSiPedidos.setVisibility(VISIBLE);
                         initRecyclerView();

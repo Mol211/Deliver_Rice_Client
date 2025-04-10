@@ -24,6 +24,7 @@ public class CheckoutViewModel extends ViewModel {
         CHECKOUTREPOSITORY = checkoutrepository;
     }
     public LiveData<GenericResponse<List<PedidoDTO>>> obtenerPedidos(Long idUsuario, long idRepartidor, EstadoPedido estado){
+
         return this.CHECKOUTREPOSITORY.obtenerPedidos(idUsuario, idRepartidor, estado);
     }
     public LiveData<GenericResponse<PedidoDTO>> obtenerPedido(long idPedido){
