@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,11 +26,12 @@ import com.mol21.cliente_deliveryrice.utils.SessionManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PedidosAsignadosFragment extends Fragment {
+public class PedidosAsignadosFragment extends Fragment{
 
     private FragmentPedidosAsignadosBinding binding;
     private SessionManager sessionManager;
     private CheckoutViewModel checkoutViewModel;
+    private BottomSheetEntregarPedido bottomSheetEntregarPedido;
     List<PedidoDTO> listaPedidos;
 
     @Override
@@ -47,33 +49,46 @@ public class PedidosAsignadosFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        init();
+    }
+
+    public void init() {
         checkoutViewModel.obtenerPedidos( null,sessionManager.getUsuario().getId(), EstadoPedido.ENVIADO)
                 .observe(getViewLifecycleOwner(), response->{
-                    if(response.getRpta()!=1){
+                    Log.d("checkoutViewModel.obtenerPedidos()", "init: "+response.getBody().isEmpty());
+                    if(response.getRpta()!=1 || response.getBody().isEmpty()){
                         binding.llNoCarrito.setVisibility(VISIBLE);
-                        binding.ndSiPedidos.setVisibility(GONE);
-
-                    } else{
+                        binding.ndSiPedidos.setVisibility(GONE);}
+                    else{
                         listaPedidos = response.getBody();
                         binding.llNoCarrito.setVisibility(GONE);
                         binding.ndSiPedidos.setVisibility(VISIBLE);
                         initRecyclerView();
                     }
                 });
-
     }
 
     private void initRecyclerView() {
         binding.rvPedidos.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.rvPedidos.setAdapter(new PedidoAdapter(listaPedidos,pedido->{
-
+            mostrarBottomSheetEntregarPedido(pedido.getId(), sessionManager.getUsuario().getId());
         }));
+
+    }
+
+    private void mostrarBottomSheetEntregarPedido(long idPedido, long idRepartidor) {
+        BottomSheetEntregarPedido entregarPedido = new BottomSheetEntregarPedido(idPedido, idRepartidor);
+        entregarPedido.setOnDismissBottom(()->{
+            init();
+        });
+        entregarPedido.show(getChildFragmentManager(),"EntregarPedido");
 
     }
 
     private void initViewModel() {
         checkoutViewModel = new ViewModelProvider(getActivity()).get(CheckoutViewModel.class);
     }
+
 }
 
 

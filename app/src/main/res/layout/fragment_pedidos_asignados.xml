@@ -19,7 +19,7 @@
         android:text="Pedidos Asignados"
         android:textSize="32sp"/>
     <LinearLayout
-        android:visibility="visible"
+        android:visibility="gone"
         android:id="@+id/llNoCarrito"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -48,7 +48,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:fillViewport="true"
-        android:visibility="gone"
+        android:visibility="visible"
         android:padding="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPedidosAsignados">
@@ -64,9 +64,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="16dp"
-                android:text="Tus Pedidos"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:text="Tus Pedidos asignados están listos para entregar!"
+                android:textSize="24sp"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_Pedidos"
