@@ -10,28 +10,27 @@ import com.mol21.cliente_deliveryrice.mvvm.model.Rol;
 
 import java.time.LocalDateTime;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import dagger.hilt.android.qualifiers.ApplicationContext;
+
+@Singleton
 public class SessionManager {
     private static final String PREF_NAME = "sesion";
     private static final String KEY_USUARIO_JSON= "usuarioJson";
     private static final String KEY_IDCARRITO= "idCarrito";
     private static final String KEY_SESION_INICIADA = "sesion_iniciada";
-
-    private static SessionManager instancia;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     private Gson gson;
-
-    private SessionManager(Context context){
+    @Inject
+    public SessionManager(@ApplicationContext Context context){
         sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         gson = new GsonBuilder()
                 .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter())
                 .create();
-    }
-    public static synchronized SessionManager getInstance(Context context){
-        if(instancia == null){
-            instancia = new SessionManager(context);
-        } return instancia;
     }
     public void iniciarSesion(UsuarioDTO usuario, long idCarrito){
         String usuarioJson = gson.toJson(usuario);
@@ -53,7 +52,6 @@ public class SessionManager {
     public void cerrarSesion(){
         editor.clear();
         editor.apply();
-        instancia = null;
     }
 
     public void nuevoCarrito(long idCarrito) {

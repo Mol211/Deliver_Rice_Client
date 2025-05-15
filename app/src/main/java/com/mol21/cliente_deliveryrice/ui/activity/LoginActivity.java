@@ -30,13 +30,15 @@ import com.mol21.cliente_deliveryrice.utils.SessionManager;
 import com.mol21.cliente_deliveryrice.mvvm.viewmodel.CarritoViewModel;
 import com.mol21.cliente_deliveryrice.mvvm.viewmodel.UsuarioViewModel;
 
+import javax.inject.Inject;
+
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class LoginActivity extends AppCompatActivity{
 
     //Atributos de clase
-    private SessionManager sessionManager;
+    @Inject SessionManager sessionManager;
     ActivityLoginBinding binding;
     private UsuarioViewModel viewModel;
     private CarritoViewModel carritoViewModel;
@@ -50,7 +52,6 @@ public class LoginActivity extends AppCompatActivity{
         EdgeToEdge.enable(this);
 
         //Buscamos si existe una sesión activa en las Sh y si existe directamente mostramos la activity Categoria
-        sessionManager = SessionManager.getInstance(this);
         boolean sesionIniciada = sessionManager.isSesionIniciada();
 
         // Debugging: Verificar qué devuelve isSesionIniciada
@@ -178,11 +179,6 @@ public class LoginActivity extends AppCompatActivity{
         //Listener del btn Registrar
         binding.btnRegistrar.setOnClickListener(view ->{
             startActivity(new Intent(this, RegistrarActivity.class));
-        });
-
-        //Listener del btn ForgetPass
-        binding.txtForgetPass.setOnClickListener(view -> {
-            startActivity(new Intent(this, ForgetPassActivity.class));
         });
 
     }

@@ -83,14 +83,14 @@
     </fragment>
     <fragment
         android:id="@+id/nav_detallePedido"
-        android:name="com.mol21.cliente_deliveryrice.ui.fragment.DetallePedido"
+        android:name="com.mol21.cliente_deliveryrice.ui.fragment.DetallePedidoFragment"
         android:label="fragment_detalle_pedido"
         tools:layout="@layout/fragment_detalle_pedido" />
 
 <!--    NAV DE ADMIN-->
     <fragment
         android:id="@+id/nav_currentPedidos"
-        android:name="com.mol21.cliente_deliveryrice.ui.fragment.CurrentPedidos"
+        android:name="com.mol21.cliente_deliveryrice.ui.fragment.CurrentPedidosFragment"
         android:label="@string/menu_current_pedidos"
         tools:layout="@layout/fragment_current_pedidos" />
     <fragment

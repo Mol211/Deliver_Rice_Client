@@ -13,7 +13,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/titulo"
-        android:textSize="34sp"
+        android:fontFamily="@font/poppins_light"
+        android:textStyle="bold"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,14 +79,6 @@
             app:icon="@drawable/ic_login"
             app:iconGravity="start"
             app:iconSize="22dp" />
-        <TextView
-            android:layout_marginTop="10dp"
-            android:id="@+id/txtForgetPass"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/textNoRecuerdoPass"
-            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -103,6 +97,7 @@
             android:layout_height="wrap_content"
             android:text="@string/textNuevo"
             android:textAlignment="center"
+            android:fontFamily="@font/poppins_light"
             android:id="@+id/textView3"
             android:textSize="20sp"/>
         <Button

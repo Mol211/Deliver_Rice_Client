@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import com.mol21.cliente_deliveryrice.databinding.FragmentCurrentPedidosBinding;
 
 
-public class CurrentPedidos extends Fragment {
+public class CurrentPedidosFragment extends Fragment {
 
     private FragmentCurrentPedidosBinding binding;
 

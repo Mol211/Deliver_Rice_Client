@@ -31,8 +31,4 @@ public interface DireccionApi {
             (@Body Direccion direccion);
     @DELETE(apiDireccion + "/{id}")
     Call<GenericResponse<DireccionDTO>> desactivarDireccion(@Path("id") long id);
-    @DELETE(apiDireccion + "/delete")
-    Call<GenericResponse<Void>> eliminarDirecciones(@Body List<Long> listaIds);
-
-
 }

@@ -21,12 +21,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 
-public class DetallePedido extends Fragment {
+public class DetallePedidoFragment extends Fragment {
     FragmentDetallePedidoBinding binding;
     PedidoViewModel viewModel;
     PedidoDTO pedido;
 
-    public DetallePedido() {
+    public DetallePedidoFragment() {
         // Required empty public constructor
     }
 

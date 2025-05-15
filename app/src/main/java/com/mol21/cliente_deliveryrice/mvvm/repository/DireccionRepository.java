@@ -143,23 +143,4 @@ public class DireccionRepository {
             return respuesta;
         }
 
-    public LiveData<GenericResponse<Void>> eliminarDirecciones(List<Long> listaIds){
-        final MutableLiveData<GenericResponse<Void>> respuesta = new MutableLiveData<>();
-        this.direccionApi.eliminarDirecciones(listaIds).enqueue(new Callback<GenericResponse<Void>>() {
-            @Override
-            public void onResponse(Call<GenericResponse<Void>> call, Response<GenericResponse<Void>> response) {
-                respuesta.setValue(response.body());
-            }
-
-            @Override
-            public void onFailure(Call<GenericResponse<Void>> call, Throwable t) {
-                respuesta.setValue(new GenericResponse<>(
-                        Global.TIPO_EX,
-                        Global.RPTA_ERROR,
-                        "DIRECCIÓN REPOSTIORY: ERROR · "+ t.getMessage(),
-                        null));
-            }
-        });
-        return respuesta;
-    }
 }

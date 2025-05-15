@@ -10,22 +10,17 @@ import com.mol21.cliente_deliveryrice.databinding.ItemDireccionDireccionBinding;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.DireccionDTO;
 import com.mol21.cliente_deliveryrice.ui.listener.OnDireccionClickListener;
 
-public class DireccionViewHolder extends RecyclerView.ViewHolder {
+public class
+DireccionViewHolder extends RecyclerView.ViewHolder {
     ItemDireccionDireccionBinding binding;
-
     public DireccionViewHolder(@NonNull ItemDireccionDireccionBinding binding) {
         super(binding.getRoot());
         this.binding = binding;
     }
-
     public void render(DireccionDTO d, OnDireccionClickListener listener) {
-
         binding.tvCalle.setText(d.getCalle() + ", " + d.getNumero());
-
         binding.tvCodPostal.setText(d.getCodPostal());
-
         binding.tvCiudad.setText(d.getCiudad());
-
         if (d.isEsPrincipal()){
             binding.tvDireccPrinc.setVisibility(VISIBLE);
             binding.btnPrinc.setEnabled(false);

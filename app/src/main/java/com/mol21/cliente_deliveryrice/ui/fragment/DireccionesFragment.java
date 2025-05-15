@@ -29,11 +29,16 @@ import com.mol21.cliente_deliveryrice.utils.SessionManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class DireccionesFragment extends Fragment{
 
     FragmentDireccionesBinding binding;
     DireccionViewModel viewModel;
-    SessionManager sesion;
+    @Inject SessionManager sesion;
     private DireccionAdapter adapter;
     public DireccionesFragment() {
         // Required empty public constructor
@@ -45,7 +50,6 @@ public class DireccionesFragment extends Fragment{
         // Inflate the layout for this fragment
         binding = FragmentDireccionesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        sesion = SessionManager.getInstance(getContext());
         initViewModel();
         initRecyclerView();
         return root;

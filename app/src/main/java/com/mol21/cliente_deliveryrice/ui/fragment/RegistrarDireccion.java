@@ -25,10 +25,16 @@ import com.mol21.cliente_deliveryrice.mvvm.model.Direccion;
 import com.mol21.cliente_deliveryrice.mvvm.viewmodel.DireccionViewModel;
 import com.mol21.cliente_deliveryrice.utils.SessionManager;
 
+import javax.inject.Inject;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+
+@AndroidEntryPoint
 public class RegistrarDireccion extends Fragment {
     FragmentRegistrarDireccionBinding binding;
     DireccionViewModel viewModel;
+    @Inject
     SessionManager session;
 
 
@@ -42,7 +48,6 @@ public class RegistrarDireccion extends Fragment {
         binding = FragmentRegistrarDireccionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         initViewModel();
-        session = SessionManager.getInstance(getContext());
         return root;
     }
 

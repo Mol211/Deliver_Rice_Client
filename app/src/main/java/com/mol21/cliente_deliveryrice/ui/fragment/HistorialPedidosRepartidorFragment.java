@@ -28,11 +28,17 @@ import com.mol21.cliente_deliveryrice.utils.SessionManager;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class HistorialPedidosRepartidorFragment extends Fragment {
 
     private FragmentHistorialPedidosRepartidorBinding binding;
     private CheckoutViewModel viewModel;
-    private SessionManager sessionManager;
+    @Inject
+    SessionManager sessionManager;
     List<PedidoDTO> listaPedidos;
 
     public HistorialPedidosRepartidorFragment() {
@@ -43,7 +49,6 @@ public class HistorialPedidosRepartidorFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         initViewModel();
-        initSessionManager();
         binding = FragmentHistorialPedidosRepartidorBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         return root;
@@ -85,11 +90,6 @@ public class HistorialPedidosRepartidorFragment extends Fragment {
         }));
 
     }
-
-    private void initSessionManager() {
-        sessionManager = SessionManager.getInstance(getContext());
-    }
-
     private void initViewModel() {
         viewModel = new ViewModelProvider(requireActivity()).get(CheckoutViewModel.class);
     }

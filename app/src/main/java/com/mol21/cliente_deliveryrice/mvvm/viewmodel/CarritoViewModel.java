@@ -25,20 +25,16 @@ public class CarritoViewModel extends ViewModel {
     //Total de productos y precio con getter para obtenerlos.
     private final MutableLiveData<Integer> totalProductos = new MutableLiveData<>();
     private final MutableLiveData<BigDecimal> totalPrecio = new MutableLiveData<>();
-
     public MutableLiveData<List<ItemDTO>> getListaProductos() {
         return listaProductos;
     }
-
     public MutableLiveData<Integer> getTotalProductos() {
         return totalProductos;
     }
-
     public MutableLiveData<BigDecimal> getTotalPrecio() {
         return totalPrecio;
     }
     //Actualizar precio y productos del carrito
-
     public void actualizarTotales(List<ItemDTO> items){
         int total = 0;
         BigDecimal precio = BigDecimal.ZERO;

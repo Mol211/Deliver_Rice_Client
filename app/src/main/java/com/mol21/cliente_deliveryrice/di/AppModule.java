@@ -12,6 +12,8 @@ import com.mol21.cliente_deliveryrice.mvvm.repository.DireccionRepository;
 import com.mol21.cliente_deliveryrice.mvvm.repository.PedidoRepository;
 import com.mol21.cliente_deliveryrice.mvvm.repository.ProductoRepository;
 import com.mol21.cliente_deliveryrice.mvvm.repository.UsuarioRepository;
+import com.mol21.cliente_deliveryrice.mvvm.viewmodel.CheckoutViewModel;
+import com.mol21.cliente_deliveryrice.utils.SessionManager;
 
 import dagger.Module;
 import dagger.Provides;
@@ -92,7 +94,6 @@ public class AppModule {
     public CheckoutRepository provideCheckoutRepository(CheckoutApi checkoutApi){
         return new CheckoutRepository(checkoutApi);
     }
-
 
     private class Builder {
     }

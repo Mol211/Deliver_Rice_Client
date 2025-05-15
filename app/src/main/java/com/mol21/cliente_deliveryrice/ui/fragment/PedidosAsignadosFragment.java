@@ -26,10 +26,16 @@ import com.mol21.cliente_deliveryrice.utils.SessionManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class PedidosAsignadosFragment extends Fragment{
 
     private FragmentPedidosAsignadosBinding binding;
-    private SessionManager sessionManager;
+    @Inject
+    SessionManager sessionManager;
     private CheckoutViewModel checkoutViewModel;
     private BottomSheetEntregarPedido bottomSheetEntregarPedido;
     List<PedidoDTO> listaPedidos;
@@ -40,7 +46,6 @@ public class PedidosAsignadosFragment extends Fragment{
 
         binding = FragmentPedidosAsignadosBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        sessionManager = SessionManager.getInstance(getContext());
         listaPedidos = new ArrayList<>();
         initViewModel();
         return root;

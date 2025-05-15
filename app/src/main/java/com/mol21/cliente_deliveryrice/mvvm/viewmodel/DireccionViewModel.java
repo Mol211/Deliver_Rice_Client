@@ -41,7 +41,4 @@ public class DireccionViewModel extends ViewModel {
     public LiveData<GenericResponse<DireccionDTO>> desactivarDireccion(long idDireccion){
         return this.direccionRepository.desactivarDireccion(idDireccion);
     }
-    public LiveData<GenericResponse<Void>> eliminarDirecciones(List<Long> listaIds){
-        return this.direccionRepository.eliminarDirecciones(listaIds);
-    }
 }

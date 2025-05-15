@@ -36,11 +36,14 @@ import com.mol21.cliente_deliveryrice.mvvm.model.Rol;
 import com.mol21.cliente_deliveryrice.utils.SessionManager;
 import com.mol21.cliente_deliveryrice.mvvm.viewmodel.CarritoViewModel;
 
+import javax.inject.Inject;
+
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
-    private SessionManager sessionManager;
+    @Inject
+    SessionManager sessionManager;
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityInicioBinding binding;
@@ -55,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityInicioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        sessionManager = SessionManager.getInstance(this);
         usuarioActual = sessionManager.getUsuario();
 
 

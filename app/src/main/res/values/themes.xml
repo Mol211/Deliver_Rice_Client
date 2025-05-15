@@ -5,6 +5,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorSecondary">#882AB0A8</item>
         <item name="colorTertiary">#E29E11</item>
+        <item name="android:fontFamily">@font/poppins_light</item>
 
     </style>
 

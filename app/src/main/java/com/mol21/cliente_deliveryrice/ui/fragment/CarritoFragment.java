@@ -30,8 +30,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class CarritoFragment extends Fragment {
-    SessionManager sesion;
+    @Inject
+    SessionManager sesionManager;
     private CarritoViewModel viewModel;
     private ItemCarritoAdapter adapter;
     FragmentCarritoBinding binding;
@@ -46,7 +52,6 @@ public class CarritoFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentCarritoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        sesion = SessionManager.getInstance(requireActivity());
         //Obtenemos el ViewModel ya declarado en la actividad
         initViewModel();
         initRecyclerView();
@@ -86,7 +91,7 @@ public class CarritoFragment extends Fragment {
             Log.d("CLICK EN CESTA","Se ha hecho click en cesta");
             vaciarCesta();
         });
-        binding.tvIdCarrito.setText("El id del carrito es: "+ sesion.getIdCarrito());
+        binding.tvIdCarrito.setText("El id del carrito es: "+ sesionManager.getIdCarrito());
     }
 
     private void vaciarCesta() {
@@ -95,7 +100,7 @@ public class CarritoFragment extends Fragment {
                 .setTitle("Confirmación")
                 .setMessage("¿Seguro que desesa eliminar todos los productos?")
                 .setPositiveButton("Sí", (dialog, wich) ->
-                        viewModel.vaciarCarrito(sesion.getUsuario().getId()).observe(getViewLifecycleOwner(), response->{
+                        viewModel.vaciarCarrito(sesionManager.getUsuario().getId()).observe(getViewLifecycleOwner(), response->{
                             if(response.getRpta()==1){
                                 Log.d("METODO VACIAR CARRITO","Respuesta OK");
                                 viewModel.actualizarTotales(Collections.emptyList());
@@ -111,7 +116,7 @@ public class CarritoFragment extends Fragment {
     }
 
     private void obtenerCarrito() {
-        viewModel.obtenerCarrito(sesion.getUsuario().getId())
+        viewModel.obtenerCarrito(sesionManager.getUsuario().getId())
                 .observe(getViewLifecycleOwner(), response->{
             if (response.getRpta()==1){
                 CarritoDTO carrito = response.getBody();

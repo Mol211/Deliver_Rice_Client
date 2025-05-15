@@ -34,9 +34,6 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class RegistrarActivity extends AppCompatActivity {
-    TextInputLayout txtEmail, txtPass, txtNombre, txtApellido, txtTfno, txtCodPostal, txtCiudad, txtCalle, txtNumero;
-    TextInputEditText etEmail, etPass, etNombre, etApellido, etTfno, etCodPostal, etCiudad, etCalle, etNumero;
-    Button btnRegistrar, btnBack;
     ActivityRegistrarBinding binding;
     private UsuarioViewModel viewModel;
 

@@ -35,10 +35,18 @@ import com.mol21.cliente_deliveryrice.mvvm.viewmodel.CarritoViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class PagoFragment extends Fragment implements OnItemSelectedListener{
+
+    private CarritoViewModel carritoViewModel;
+
+    private DireccionViewModel direccionViewModel;
     private FragmentPagoBinding binding;
-    private SessionManager sesion;
+    @Inject SessionManager sesion;
 
 
     //Atributos para manejar los recycler
@@ -49,8 +57,7 @@ public class PagoFragment extends Fragment implements OnItemSelectedListener{
 
 
     //ViewModels
-    private CarritoViewModel carritoViewModel;
-    private DireccionViewModel direccionViewModel;
+
 
     private MetodoPago metodo;
     private DireccionDTO direccion;
@@ -67,7 +74,6 @@ public class PagoFragment extends Fragment implements OnItemSelectedListener{
         binding = FragmentPagoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         initViewModel();
-        sesion = SessionManager.getInstance(getContext());
         isExpanded = false;
         listaItems = new ArrayList();
         listaDirecciones = new ArrayList<>();

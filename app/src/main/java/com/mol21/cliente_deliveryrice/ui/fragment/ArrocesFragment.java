@@ -31,6 +31,8 @@ import com.mol21.cliente_deliveryrice.mvvm.viewmodel.ProductoViewModel;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
@@ -40,7 +42,8 @@ public class ArrocesFragment extends Fragment {
     private ProductoViewModel productoViewModel;
     private CarritoViewModel carritoViewModel;
     private ProductoAdapter productoAdapter;
-    private SessionManager sessionManager;
+    @Inject
+    SessionManager sessionManager;
     private long carritoId;
 
     public ArrocesFragment() {
@@ -62,8 +65,6 @@ public class ArrocesFragment extends Fragment {
         if(getArguments() != null) {
             categoriaFragment = (CategoriaProducto) getArguments().getSerializable("categoria");
         }
-
-        sessionManager = SessionManager.getInstance(getContext());
         initViewModel(categoriaFragment);
         init();
         initRecyclerView();
