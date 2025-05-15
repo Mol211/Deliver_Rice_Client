@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorTertiaryVerySoft"
+    android:background="@color/cream"
     tools:context=".ui.activity.RegistrarActivity">
     <ScrollView
         android:layout_width="match_parent"
@@ -47,6 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
+                    app:boxBackgroundColor="@color/white"
                     app:startIconDrawable="@drawable/ic_email">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -60,6 +61,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/txt_Reg_pass"
                     android:layout_width="match_parent"
+                    app:boxBackgroundColor="@color/white"
                     android:layout_height="wrap_content"
                     android:hint="Password"
                     app:startIconDrawable="@drawable/ic_lock">
@@ -75,6 +77,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/txt_Reg_nombre"
                     android:layout_width="match_parent"
+                    app:boxBackgroundColor="@color/white"
                     android:layout_height="wrap_content"
                     android:hint="Nombre"
                     app:startIconDrawable="@drawable/ic_person">
@@ -89,6 +92,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/txt_Reg_apellidos"
+                    app:boxBackgroundColor="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Apellidos"
@@ -104,6 +108,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/txt_Reg_tfno"
+                    app:boxBackgroundColor="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Teléfono"
@@ -121,6 +126,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    app:boxBackgroundColor="@color/white"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal">
 
@@ -128,6 +134,7 @@
                         android:id="@+id/txt_Reg_codPostal"
                         android:layout_width="190dp"
                         android:layout_height="wrap_content"
+                        app:boxBackgroundColor="@color/white"
                         android:layout_marginEnd="10dp"
                         android:hint="Código Postal"
                         app:startIconDrawable="@drawable/ic_location">
@@ -143,6 +150,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/txt_Reg_ciudad"
                         android:layout_width="190dp"
+                        app:boxBackgroundColor="@color/white"
                         android:layout_height="wrap_content"
                         android:hint="Ciudad"
                         app:startIconDrawable="@drawable/ic_direcciones">
@@ -160,6 +168,7 @@
                     android:id="@+id/llDireccion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
@@ -167,6 +176,7 @@
                         android:id="@+id/txt_Reg_calle"
                         android:layout_width="220dp"
                         android:layout_height="wrap_content"
+                        app:boxBackgroundColor="@color/white"
                         android:layout_marginStart="40dp"
                         android:layout_marginEnd="10dp"
                         android:hint="Calle">
@@ -182,6 +192,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/txt_Reg_numero"
                         android:layout_width="80dp"
+                        app:boxBackgroundColor="@color/white"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="10dp"
                         android:hint="Nº">

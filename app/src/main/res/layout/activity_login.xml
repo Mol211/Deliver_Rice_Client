@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_light"
         android:textAllCaps="true"
-        android:text="@string/textBtnLogin"
+        android:text="Login"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,6 +52,7 @@
             android:id="@+id/txt_Reg_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:boxBackgroundColor="@color/white"
             android:hint="Email"
             app:startIconDrawable="@drawable/ic_email">
 
@@ -66,6 +67,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txt_Reg_pass"
             android:layout_width="match_parent"
+            app:boxBackgroundColor="@color/white"
             android:layout_height="wrap_content"
             android:hint="Password"
             app:startIconDrawable="@drawable/ic_lock">
