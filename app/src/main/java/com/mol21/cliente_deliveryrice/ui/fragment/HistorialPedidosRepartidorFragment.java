@@ -86,7 +86,7 @@ public class HistorialPedidosRepartidorFragment extends Fragment {
     private void initRecyclerView() {
         binding.rvPedidos.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.rvPedidos.setAdapter(new PedidoAdapter(listaPedidos,pedido->{
-            Toast.makeText(getContext(), "hola", Toast.LENGTH_SHORT).show();
+
         }));
 
     }
