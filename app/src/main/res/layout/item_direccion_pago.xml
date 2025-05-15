@@ -6,6 +6,7 @@
     android:clickable="true"
     app:cardCornerRadius="12dp"
     android:layout_margin="2dp"
+    app:cardBackgroundColor="@color/cream"
     android:focusable="true"
     android:layout_height="80dp"
     app:cardElevation="2dp">

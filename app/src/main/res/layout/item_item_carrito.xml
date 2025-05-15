@@ -58,6 +58,7 @@
                 android:src="@drawable/baseline_remove"/>
             <TextView
                 android:id="@+id/txtCantidad"
+                android:textColor="@color/white"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"

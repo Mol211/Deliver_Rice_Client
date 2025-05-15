@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C6EBC068"
+    android:background="@color/celadon"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp"
@@ -22,7 +22,7 @@
         android:layout_height="2dp"
         android:layout_gravity="center"
         android:layout_marginBottom="8dp"
-        android:background="@android:color/darker_gray" />
+        android:background="@color/cream" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_Direccion_Pago"
         android:layout_width="match_parent"
@@ -33,6 +33,7 @@
         app:cardCornerRadius="130dp"
         app:cardElevation="2dp"
         android:clickable="true"
+        app:cardBackgroundColor="@color/cream"
         android:focusable="true"
         android:layout_marginTop="16dp"
         android:layout_width="match_parent"

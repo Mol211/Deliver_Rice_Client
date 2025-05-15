@@ -11,7 +11,7 @@
     android:layout_height="140dp">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/llInicio"
-        android:background="@color/colorPrimaryVerySoft"
+        android:background="@color/celadon"
         android:layout_gravity="center"
         android:orientation="vertical"
         android:paddingHorizontal="8dp"

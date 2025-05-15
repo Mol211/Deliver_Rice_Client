@@ -105,13 +105,13 @@ public class ArrocesFragment extends Fragment {
         if(categoriaFragment != null){
             switch (categoriaFragment){
                 case ARROZ:
-                    binding.tvTittulo.setText("Lista de Arroces");
+                    binding.tvTittulo.setText("Arroces");
                     break;
                 case ENTRANTE:
-                    binding.tvTittulo.setText("Lista de Entrantes");
+                    binding.tvTittulo.setText("Entrantes");
                     break;
                 case POSTRE:
-                    binding.tvTittulo.setText("Lista de Postres");
+                    binding.tvTittulo.setText("Postres");
                     break;
             }
         }

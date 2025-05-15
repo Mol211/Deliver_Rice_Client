@@ -15,8 +15,16 @@
     <color name="colorSecundaryVerySoft">#a8dbd1</color>
     <color name="colorTertiary">#E29E11</color>
     <color name="colorTertiarySoft">#f1c40f</color>
-    <color name="colorTertiaryVerySoft">#edc26a</color>
+    <color name="colorTertiaryVerySoft">#EFF7CF</color>
     <color name="colorTertiaryVeryVerySoft">#EBC992</color>
+
+
+
+    <color name="cream">#EFF7CF</color>
+    <color name="celadon">#BAD9B5</color>
+    <color name="ecru">#ABA361</color>
+    <color name="garnet">#732C2C</color>
+    <color name="chocolatecosmos">#420C14</color>
 
 
 </resources>

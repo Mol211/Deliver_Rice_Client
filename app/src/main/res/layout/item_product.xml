@@ -33,6 +33,7 @@
                 tools:background="#4AFFEA00"
                 tools:text="Arroz con alcachofas y setas"/>
             <TextView
+                android:fontFamily="@font/roboto_regular"
                 android:id="@+id/tvDescripción"
                 android:layout_width="150dp"
                 android:layout_height="90dp"
