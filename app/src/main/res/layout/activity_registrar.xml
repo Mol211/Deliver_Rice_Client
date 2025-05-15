@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondonaranja"
+    android:background="@color/colorTertiaryVerySoft"
     tools:context=".ui.activity.RegistrarActivity">
     <ScrollView
         android:layout_width="match_parent"
@@ -29,6 +29,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="60dp"
                     android:text="REGISTRAR"
+                    android:textStyle="bold"
                     android:textSize="48sp" />
             </LinearLayout>
 
@@ -199,22 +200,24 @@
 
             <Button
                 android:id="@+id/btn_Reg_registrarr"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="16dp"
                 android:text="Registrar"
                 android:textAllCaps="true"
-                android:textSize="16dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 app:icon="@drawable/ic_save"
                 android:layout_gravity="center_horizontal"/>
             <Button
                 android:id="@+id/btn_Reg_back"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="16dp"
                 android:text="Volver"
                 android:textAllCaps="true"
-                android:textSize="16dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 app:icon="@drawable/ic_back"
                 android:layout_gravity="center_horizontal" />
 

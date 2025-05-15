@@ -17,7 +17,7 @@
     <string name="menu_productos">Productos</string>
     <string name="menu_historial_pedidos">Historial de Pedidos</string>
     <string name="menu_current_pedidos">Pedidos en curso</string>
-    <string name="titulo">DeliveryRice by VM</string>
+    <string name="titulo">Delivery Rice</string>
     <string name="emailHint">Email</string>
     <string name="PasswordHint">Password</string>
     <string name="textNuevo">¿Eres nuevo? Regístrate y formarás parte de la familia DeliveryRice!!</string>
