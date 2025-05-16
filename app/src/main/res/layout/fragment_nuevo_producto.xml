@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cream"
+    tools:context=".ui.activity.RegistrarActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/llRegistrar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:text="Nuevo Producto"
+                    android:textSize="48sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/horizontalLayoutForm"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="vertical"
+                android:padding="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/llRegistrar">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt_Reg_Nombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nombre del Producto"
+                    app:boxBackgroundColor="@color/white">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_Reg_Nombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="text"
+                        android:textSize="18sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt_Reg_Descripcion"
+                    android:layout_width="match_parent"
+                    app:boxBackgroundColor="@color/white"
+                    android:layout_height="wrap_content"
+                    android:hint="Descripcion">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_Reg_Descripcion"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:minLines="1"
+                        android:maxLines="5"
+                        android:inputType="textMultiLine"
+                        android:textSize="18sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt_Reg_Url"
+                    android:layout_width="match_parent"
+                    app:boxBackgroundColor="@color/white"
+                    android:layout_height="wrap_content"
+                    android:hint="Copie la URL de la Imagen">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_Reg_Url"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="text"
+                        android:textSize="18sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt_Reg_Categoria"
+                    app:boxBackgroundColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Categoría Producto"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                    <AutoCompleteTextView
+                        android:id="@+id/et_Categoria_Producto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:inputType="none"
+                        android:focusable="false"
+                        app:simpleItems="@array/CategoriaProducto"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:boxBackgroundColor="@color/white"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txt_Reg_Stock"
+                        android:layout_width="190dp"
+                        android:layout_height="wrap_content"
+                        app:boxBackgroundColor="@color/white"
+                        android:layout_marginEnd="10dp"
+                        android:hint="Stock Inicial">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_Reg_Stock"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:textSize="18sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txt_Reg_Precio"
+                        android:layout_width="190dp"
+                        app:boxBackgroundColor="@color/white"
+                        android:layout_height="wrap_content"
+                        android:hint="Precio">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_Reg_Precio"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="numberDecimal"
+                            android:textSize="18sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_Reg_registrarr"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="52dp"
+                android:text="Registrar"
+                android:textAllCaps="true"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:icon="@drawable/ic_save"
+                android:layout_gravity="center_horizontal"/>
+            <Button
+                android:id="@+id/btn_Reg_back"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="16dp"
+                android:text="Volver"
+                android:textAllCaps="true"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:icon="@drawable/ic_back"
+                android:layout_gravity="center_horizontal" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

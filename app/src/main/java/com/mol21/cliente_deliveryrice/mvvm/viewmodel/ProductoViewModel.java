@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.mol21.cliente_deliveryrice.mvvm.model.CategoriaProducto;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.ProductoDTO;
+import com.mol21.cliente_deliveryrice.mvvm.model.Producto;
 import com.mol21.cliente_deliveryrice.mvvm.repository.ProductoRepository;
 import com.mol21.cliente_deliveryrice.utils.GenericResponse;
 
@@ -23,5 +24,8 @@ public class ProductoViewModel extends ViewModel {
     }
     public LiveData<GenericResponse<List<ProductoDTO>>> obtenerProductos(CategoriaProducto categoria){
         return this.productoRepository.obtenerProducto(categoria);
+    }
+    public LiveData<GenericResponse<ProductoDTO>> crearProducto(Producto p){
+        return this.productoRepository.registrarProducto(p);
     }
 }

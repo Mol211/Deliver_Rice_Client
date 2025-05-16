@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="CategoriaProducto">
+        <item>ARROZ</item>
+        <item>ENTRANTE</item>
+        <item>POSTRE</item>
+    </string-array>
+    <string-array name="Entrantes" />
+    <string-array name="Postres" />
+</resources>

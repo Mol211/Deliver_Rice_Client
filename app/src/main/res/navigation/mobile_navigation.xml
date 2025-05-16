@@ -69,7 +69,7 @@
     <fragment
         android:id="@+id/nav_registrarDireccion"
         android:name="com.mol21.cliente_deliveryrice.ui.fragment.RegistrarDireccion"
-        android:label="fragment_registrar_direccion"
+        android:label="Nueva Dirección"
         tools:layout="@layout/fragment_registrar_direccion">
         <argument
             android:name="modo"
@@ -84,7 +84,7 @@
     <fragment
         android:id="@+id/nav_detallePedido"
         android:name="com.mol21.cliente_deliveryrice.ui.fragment.DetallePedidoFragment"
-        android:label="fragment_detalle_pedido"
+        android:label="Detalle del Pedido"
         tools:layout="@layout/fragment_detalle_pedido" />
 
 <!--    NAV DE ADMIN-->
@@ -97,7 +97,11 @@
     android:id="@+id/nav_productos"
     android:name="com.mol21.cliente_deliveryrice.ui.fragment.ProductosFragment"
     android:label="@string/nav_productos"
-    tools:layout="@layout/fragment_productos" />
+    tools:layout="@layout/fragment_productos" >
+        <action
+            android:id="@+id/action_nav_productos_to_nuevoProductoFragment"
+            app:destination="@id/nuevoProductoFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_clientes"
@@ -114,6 +118,10 @@
         android:name="com.mol21.cliente_deliveryrice.ui.fragment.RepartidoresFragment"
         android:label="@string/nav_gestion_repartidores"
         tools:layout="@layout/fragment_repartidores" />
+    <fragment
+        android:id="@+id/nuevoProductoFragment"
+        android:name="com.mol21.cliente_deliveryrice.ui.fragment.NuevoProductoFragment"
+        android:label="Nuevo Producto" />
 
 
     <!--    NAV DE REPARTIDOR-->
@@ -127,6 +135,7 @@
         android:name="com.mol21.cliente_deliveryrice.ui.fragment.HistorialPedidosRepartidorFragment"
         android:label="@string/nav_historialPedidosRepartidor"
         tools:layout="@layout/fragment_historial_pedidos_repartidor" />
+
 
 
 </navigation>

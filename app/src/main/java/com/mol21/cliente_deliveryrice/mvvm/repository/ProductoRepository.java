@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.mol21.cliente_deliveryrice.mvvm.api.ProductoApi;
 import com.mol21.cliente_deliveryrice.mvvm.model.CategoriaProducto;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.ProductoDTO;
+import com.mol21.cliente_deliveryrice.mvvm.model.Producto;
 import com.mol21.cliente_deliveryrice.utils.GenericResponse;
 import com.mol21.cliente_deliveryrice.utils.Global;
 
@@ -36,6 +37,28 @@ public class ProductoRepository {
 
             @Override
             public void onFailure(Call<GenericResponse<List<ProductoDTO>>> call, Throwable t) {
+                respuesta.setValue(new GenericResponse<>(
+                        Global.TIPO_EX,
+                        Global.RPTA_ERROR,
+                        "Se ha producido un error al conectar con el servidor " + t.getMessage(),
+                        null
+                ));
+                System.out.println("Se ha producido un error al conectar con el servidor. Error en UsuarioRepository. " + t.getMessage());
+                t.printStackTrace();
+            }
+        });
+        return respuesta;
+    }
+    public LiveData<GenericResponse<ProductoDTO>> registrarProducto(Producto p) {
+        final MutableLiveData<GenericResponse<ProductoDTO>> respuesta = new MutableLiveData<>();
+        this.productoApi.crearProducto(p).enqueue(new Callback<GenericResponse<ProductoDTO>>() {
+            @Override
+            public void onResponse(Call<GenericResponse<ProductoDTO>> call, Response<GenericResponse<ProductoDTO>> response) {
+                respuesta.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<GenericResponse<ProductoDTO>> call, Throwable t) {
                 respuesta.setValue(new GenericResponse<>(
                         Global.TIPO_EX,
                         Global.RPTA_ERROR,

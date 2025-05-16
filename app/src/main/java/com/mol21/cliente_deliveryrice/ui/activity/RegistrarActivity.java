@@ -92,15 +92,6 @@ public class RegistrarActivity extends AppCompatActivity {
                                     toastCorrecto(response.getMessage());
                                     UsuarioDTO uDTO = response.getBody();
                                     this.finish();
-//                                    etEmail.setText("");
-//                                    etPass.setText("");
-//                                    etNombre.setText("");
-//                                    etApellido.setText("");
-//                                    etNumero.setText("");
-//                                    etCiudad.setText("");
-//                                    etTfno.setText("");
-//                                    etCodPostal.setText("");
-//                                    etCalle.setText("");
                                 } else if(response.getRpta() == -1){
                                     toastError(response.getMessage());
                                 } else{
