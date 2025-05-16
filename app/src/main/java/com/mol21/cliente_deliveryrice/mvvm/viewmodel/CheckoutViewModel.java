@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.ItemDTO;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.PedidoDTO;
+import com.mol21.cliente_deliveryrice.mvvm.model.DTO.UsuarioDTO;
 import com.mol21.cliente_deliveryrice.mvvm.model.EstadoPedido;
 import com.mol21.cliente_deliveryrice.mvvm.repository.CheckoutRepository;
 import com.mol21.cliente_deliveryrice.utils.GenericResponse;
@@ -38,6 +39,9 @@ public class CheckoutViewModel extends ViewModel {
     }
     public LiveData<GenericResponse<PedidoDTO>> cambiarEstado(long idPedido, String accion, long idRepartidor){
         return this.CHECKOUTREPOSITORY.cambiarEstado(idPedido, accion, idRepartidor);
+    }
+    public LiveData<GenericResponse<UsuarioDTO>> obtenerRepartidor(){
+        return this.CHECKOUTREPOSITORY.obtenerRepartidor();
     }
 
 

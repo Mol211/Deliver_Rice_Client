@@ -33,7 +33,9 @@ import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class CurrentPedidosFragment extends Fragment {
 
     private FragmentCurrentPedidosBinding binding;
@@ -60,8 +62,10 @@ public class CurrentPedidosFragment extends Fragment {
     }
 
     private void init() {
+        listaPedidos.clear();
         List<LiveData<GenericResponse<List<PedidoDTO>>>>listaDeListas = checkoutViewModel.obtenerPedidosEnProceso();
         for(LiveData<GenericResponse<List<PedidoDTO>>> liveData : listaDeListas) {
+            liveData.removeObservers(getViewLifecycleOwner());
             liveData.observe(getViewLifecycleOwner(),response->{
                 for(PedidoDTO pedido: listaPedidos){
                         Log.d("Pedido","pedido:"+pedido.getId());
@@ -71,6 +75,7 @@ public class CurrentPedidosFragment extends Fragment {
                 if(response.getRpta()==1){
                     listaPedidos.addAll(response.getBody());
                 }
+//                Log.d("EL primer pedido es: ","EL primer pedido es: "+listaPedidos.get(0).getId());
                 if(listaPedidos.isEmpty()){
                     binding.llNoPedido.setVisibility(VISIBLE);
                     binding.ndSiPedidos.setVisibility(GONE);
@@ -81,6 +86,7 @@ public class CurrentPedidosFragment extends Fragment {
                 }
             });
         }
+
     }
 
     private void initRecyclerView() {
@@ -100,7 +106,11 @@ public class CurrentPedidosFragment extends Fragment {
 
     private void mostrarBottomSheetCambiarEstadoPedido(PedidoDTO pedido) {
         BottomSheetCambiarEstadoPedido dialog = new BottomSheetCambiarEstadoPedido(pedido);
+        dialog.setOnDismissBottom(()->{
+            init();
+        });
         dialog.show(getChildFragmentManager(), "Cambiar Estado Pedido");
+
     }
 
     private void initViewModel() {

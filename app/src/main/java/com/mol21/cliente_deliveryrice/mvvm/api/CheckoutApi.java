@@ -1,6 +1,7 @@
 package com.mol21.cliente_deliveryrice.mvvm.api;
 
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.PedidoDTO;
+import com.mol21.cliente_deliveryrice.mvvm.model.DTO.UsuarioDTO;
 import com.mol21.cliente_deliveryrice.mvvm.model.EstadoPedido;
 import com.mol21.cliente_deliveryrice.utils.GenericResponse;
 
@@ -24,6 +25,9 @@ public interface CheckoutApi {
 
     @GET(apiCheckout + "/pedido/{idPedido}")
     Call<GenericResponse<PedidoDTO>> obtenerPedido(@Path("idPedido")Long idPedido);
+
+    @GET(apiCheckout + "/repartidor")
+    Call<GenericResponse<UsuarioDTO>> obtenerRepartidor();
 
     @PUT(apiCheckout + "/cambio-estado/{idPedido}")
     Call<GenericResponse<PedidoDTO>>cambiarEstado(

@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.mol21.cliente_deliveryrice.mvvm.api.CheckoutApi;
 import com.mol21.cliente_deliveryrice.mvvm.model.DTO.PedidoDTO;
+import com.mol21.cliente_deliveryrice.mvvm.model.DTO.UsuarioDTO;
 import com.mol21.cliente_deliveryrice.mvvm.model.EstadoPedido;
 import com.mol21.cliente_deliveryrice.utils.GenericResponse;
 import com.mol21.cliente_deliveryrice.utils.Global;
@@ -117,6 +118,28 @@ public class CheckoutRepository {
 
             @Override
             public void onFailure(Call<GenericResponse<PedidoDTO>>call, Throwable t) {
+                respuesta.setValue(new GenericResponse<>(
+                        Global.TIPO_EX,
+                        Global.RPTA_ERROR,
+                        "Se ha producido un error al conectar con el servidor " + t.getMessage(),
+                        null
+                ));
+                System.out.println("Se ha producido un error al conectar con el servidor. Error en CheckoutRepository. " + t.getMessage());
+                t.printStackTrace();
+            }
+        });
+        return respuesta;
+    }
+    public LiveData<GenericResponse<UsuarioDTO>> obtenerRepartidor(){
+        final MutableLiveData<GenericResponse<UsuarioDTO>> respuesta = new MutableLiveData<>();
+        this.checkoutApi.obtenerRepartidor().enqueue(new Callback<GenericResponse<UsuarioDTO>>() {
+            @Override
+            public void onResponse(Call<GenericResponse<UsuarioDTO>> call, Response<GenericResponse<UsuarioDTO>> response) {
+                respuesta.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<GenericResponse<UsuarioDTO>> call, Throwable t) {
                 respuesta.setValue(new GenericResponse<>(
                         Global.TIPO_EX,
                         Global.RPTA_ERROR,
