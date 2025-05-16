@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/cream"
     tools:context=".ui.fragment.ProductosFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Productos"
+        android:textSize="50sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"/>
 
-</FrameLayout>
+    <ImageView
+        android:layout_width="299dp"
+        android:layout_height="292dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/paella" />
+    <Button
+        android:id="@+id/btnNewProduct"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Nuevo Producto"
+        android:layout_marginTop="60dp"
+        android:textAllCaps="true"
+        android:textSize="30sp" />
+    <Button
+        android:id="@+id/btnEditProudct"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:text="Editar Producto"
+        android:textAllCaps="true"
+        android:textSize="30sp" />
+
+
+
+</LinearLayout>
