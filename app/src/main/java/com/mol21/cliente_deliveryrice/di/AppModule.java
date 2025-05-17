@@ -36,7 +36,7 @@ public class AppModule {
     @Provides
     public static Retrofit provideRetrofit(OkHttpClient okHttpClient){
         return new Retrofit.Builder()
-                .baseUrl("http://192.168.1.134:9090/")
+                .baseUrl("http://192.168.1.134:8080/")
 //                .baseUrl("http://10.0.2.2:9090/")
                 .addConverterFactory(GsonConverterFactory.create(GsonConfig.getGson()))
                 .client(okHttpClient)
